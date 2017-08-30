@@ -1,0 +1,54 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+W	../ExamCorrector/bin/handwriting.py	/^W = tf.Variable(tf.zeros([784, 10]))$/;"	kind:variable	line:41
+W	../bin/handwriting.py	/^W = tf.Variable(tf.zeros([784, 10]))$/;"	kind:variable	line:41
+X	../ExamCorrector/bin/sentenceclassification.py	/^X = array[:,0:4]$/;"	kind:variable	line:44
+X	../bin/sentenceclassification.py	/^X = array[:,0:4]$/;"	kind:variable	line:44
+Y	../ExamCorrector/bin/sentenceclassification.py	/^Y = array[:,4]$/;"	kind:variable	line:45
+Y	../bin/sentenceclassification.py	/^Y = array[:,4]$/;"	kind:variable	line:45
+__author__	../ExamCorrector/bin/handwriting.py	/^__author__ = "Aidan Dowling"$/;"	kind:variable	line:5
+__author__	../bin/handwriting.py	/^__author__ = "Aidan Dowling"$/;"	kind:variable	line:5
+__version__	../ExamCorrector/bin/handwriting.py	/^__version__ = "1.0.1"$/;"	kind:variable	line:6
+__version__	../bin/handwriting.py	/^__version__ = "1.0.1"$/;"	kind:variable	line:6
+array	../ExamCorrector/bin/sentenceclassification.py	/^array = dataset.values$/;"	kind:variable	line:43
+array	../bin/sentenceclassification.py	/^array = dataset.values$/;"	kind:variable	line:43
+b	../ExamCorrector/bin/handwriting.py	/^b = tf.Variable(tf.zeros([10]))$/;"	kind:variable	line:42
+b	../bin/handwriting.py	/^b = tf.Variable(tf.zeros([10]))$/;"	kind:variable	line:42
+canPrint	../ExamCorrector/bin/handwriting.py	/^def canPrint():$/;"	kind:function	line:13
+canPrint	../bin/handwriting.py	/^def canPrint():$/;"	kind:function	line:13
+cross_entropy	../ExamCorrector/bin/handwriting.py	/^cross_entropy = tf.reduce_mean(-tf.reduce_sum(y_ * tf.log(y), reduction_indices=[1]))/;"	kind:variable	line:49
+cross_entropy	../bin/handwriting.py	/^cross_entropy = tf.reduce_mean(-tf.reduce_sum(y_ * tf.log(y), reduction_indices=[1]))/;"	kind:variable	line:49
+dataset	../ExamCorrector/bin/sentenceclassification.py	/^dataset = pandas.read_csv(url, names=names)$/;"	kind:variable	line:18
+dataset	../bin/sentenceclassification.py	/^dataset = pandas.read_csv(url, names=names)$/;"	kind:variable	line:18
+debugPrint	../ExamCorrector/bin/handwriting.py	/^def debugPrint():$/;"	kind:function	line:20
+debugPrint	../bin/handwriting.py	/^def debugPrint():$/;"	kind:function	line:20
+handwriting.py	../ExamCorrector/bin/handwriting.py	1;"	kind:file	line:1
+handwriting.py	../bin/handwriting.py	1;"	kind:file	line:1
+iPnt	../ExamCorrector/bin/handwriting.py	/^def iPnt(s):$/;"	kind:function	line:23
+iPnt	../bin/handwriting.py	/^def iPnt(s):$/;"	kind:function	line:23
+mnist	../ExamCorrector/bin/handwriting.py	/^mnist = input_data.read_data_sets("MNIST_data\/", one_hot=True)$/;"	kind:variable	line:32
+mnist	../bin/handwriting.py	/^mnist = input_data.read_data_sets("MNIST_data\/", one_hot=True)$/;"	kind:variable	line:32
+models	../ExamCorrector/bin/sentenceclassification.py	/^models = []$/;"	kind:variable	line:53
+models	../bin/sentenceclassification.py	/^models = []$/;"	kind:variable	line:53
+names	../ExamCorrector/bin/sentenceclassification.py	/^names = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'class']$/;"	kind:variable	line:17
+names	../bin/sentenceclassification.py	/^names = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'class']$/;"	kind:variable	line:17
+seed	../ExamCorrector/bin/sentenceclassification.py	/^seed = 7$/;"	kind:variable	line:47
+seed	../bin/sentenceclassification.py	/^seed = 7$/;"	kind:variable	line:47
+sentenceclassification.py	../ExamCorrector/bin/sentenceclassification.py	1;"	kind:file	line:1
+sentenceclassification.py	../bin/sentenceclassification.py	1;"	kind:file	line:1
+url	../ExamCorrector/bin/sentenceclassification.py	/^url = "https:\/\/archive.ics.uci.edu\/ml\/machine-learning-databases\/iris\/iris.data"$/;"	kind:variable	line:16
+url	../bin/sentenceclassification.py	/^url = "https:\/\/archive.ics.uci.edu\/ml\/machine-learning-databases\/iris\/iris.data"$/;"	kind:variable	line:16
+validation_size	../ExamCorrector/bin/sentenceclassification.py	/^validation_size = 0.20$/;"	kind:variable	line:46
+validation_size	../bin/sentenceclassification.py	/^validation_size = 0.20$/;"	kind:variable	line:46
+warningPrint	../ExamCorrector/bin/handwriting.py	/^def warningPrint():$/;"	kind:function	line:11
+warningPrint	../bin/handwriting.py	/^def warningPrint():$/;"	kind:function	line:11
+x	../ExamCorrector/bin/handwriting.py	/^x = tf.placeholder(tf.float32, [None, 784])$/;"	kind:variable	line:37
+x	../bin/handwriting.py	/^x = tf.placeholder(tf.float32, [None, 784])$/;"	kind:variable	line:37
+y	../ExamCorrector/bin/handwriting.py	/^y = tf.nn.softmax(tf.matmul(x, W) + b)$/;"	kind:variable	line:45
+y	../bin/handwriting.py	/^y = tf.nn.softmax(tf.matmul(x, W) + b)$/;"	kind:variable	line:45
+y_	../ExamCorrector/bin/handwriting.py	/^y_ = tf.placeholder(tf.float32, [None, 10])$/;"	kind:variable	line:47
+y_	../bin/handwriting.py	/^y_ = tf.placeholder(tf.float32, [None, 10])$/;"	kind:variable	line:47
