@@ -4,51 +4,76 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+TextCNN	../bin/answercheck.py	/^class TextCNN(object):$/;"	kind:class	line:5
 W	../ExamCorrector/bin/handwriting.py	/^W = tf.Variable(tf.zeros([784, 10]))$/;"	kind:variable	line:41
 W	../bin/handwriting.py	/^W = tf.Variable(tf.zeros([784, 10]))$/;"	kind:variable	line:41
 X	../ExamCorrector/bin/sentenceclassification.py	/^X = array[:,0:4]$/;"	kind:variable	line:44
-X	../bin/sentenceclassification.py	/^X = array[:,0:4]$/;"	kind:variable	line:44
+X	../bin/sentenceclassification.py	/^X = np.array(training)$/;"	kind:variable	line:208
 Y	../ExamCorrector/bin/sentenceclassification.py	/^Y = array[:,4]$/;"	kind:variable	line:45
-Y	../bin/sentenceclassification.py	/^Y = array[:,4]$/;"	kind:variable	line:45
 __author__	../ExamCorrector/bin/handwriting.py	/^__author__ = "Aidan Dowling"$/;"	kind:variable	line:5
 __author__	../bin/handwriting.py	/^__author__ = "Aidan Dowling"$/;"	kind:variable	line:5
+__init__	../bin/answercheck.py	/^    def __init__(self, sequence_length, num_classes, vocab_size, embedding_size, filter_sizes, num_filters):$/;"	kind:member	line:8
 __version__	../ExamCorrector/bin/handwriting.py	/^__version__ = "1.0.1"$/;"	kind:variable	line:6
 __version__	../bin/handwriting.py	/^__version__ = "1.0.1"$/;"	kind:variable	line:6
+answercheck.py	../bin/answercheck.py	1;"	kind:file	line:1
 array	../ExamCorrector/bin/sentenceclassification.py	/^array = dataset.values$/;"	kind:variable	line:43
-array	../bin/sentenceclassification.py	/^array = dataset.values$/;"	kind:variable	line:43
 b	../ExamCorrector/bin/handwriting.py	/^b = tf.Variable(tf.zeros([10]))$/;"	kind:variable	line:42
 b	../bin/handwriting.py	/^b = tf.Variable(tf.zeros([10]))$/;"	kind:variable	line:42
+bag	../bin/sentenceclassification.py	/^    bag = []$/;"	kind:variable	line:63
+bow	../bin/sentenceclassification.py	/^def bow(sentence, words, show_details=False):$/;"	kind:function	line:105
 canPrint	../ExamCorrector/bin/handwriting.py	/^def canPrint():$/;"	kind:function	line:13
 canPrint	../bin/handwriting.py	/^def canPrint():$/;"	kind:function	line:13
+classes	../bin/sentenceclassification.py	/^classes = []$/;"	kind:variable	line:28
+classes	../bin/sentenceclassification.py	/^classes = list(set(classes))$/;"	kind:variable	line:48
+clean_up_sentence	../bin/sentenceclassification.py	/^def clean_up_sentence(sentence):$/;"	kind:function	line:97
 cross_entropy	../ExamCorrector/bin/handwriting.py	/^cross_entropy = tf.reduce_mean(-tf.reduce_sum(y_ * tf.log(y), reduction_indices=[1]))/;"	kind:variable	line:49
 cross_entropy	../bin/handwriting.py	/^cross_entropy = tf.reduce_mean(-tf.reduce_sum(y_ * tf.log(y), reduction_indices=[1]))/;"	kind:variable	line:49
 dataset	../ExamCorrector/bin/sentenceclassification.py	/^dataset = pandas.read_csv(url, names=names)$/;"	kind:variable	line:18
-dataset	../bin/sentenceclassification.py	/^dataset = pandas.read_csv(url, names=names)$/;"	kind:variable	line:18
 debugPrint	../ExamCorrector/bin/handwriting.py	/^def debugPrint():$/;"	kind:function	line:20
 debugPrint	../bin/handwriting.py	/^def debugPrint():$/;"	kind:function	line:20
+documents	../bin/sentenceclassification.py	/^documents = []$/;"	kind:variable	line:29
+elapsed_time	../bin/sentenceclassification.py	/^elapsed_time = time.time() - start_time$/;"	kind:variable	line:215
+fileopen.py	../bin/fileopen.py	1;"	kind:file	line:1
 handwriting.py	../ExamCorrector/bin/handwriting.py	1;"	kind:file	line:1
 handwriting.py	../bin/handwriting.py	1;"	kind:file	line:1
+i	../bin/sentenceclassification.py	/^i = 0$/;"	kind:variable	line:79
 iPnt	../ExamCorrector/bin/handwriting.py	/^def iPnt(s):$/;"	kind:function	line:23
 iPnt	../bin/handwriting.py	/^def iPnt(s):$/;"	kind:function	line:23
+ignore_words	../bin/sentenceclassification.py	/^ignore_words = ['?']$/;"	kind:variable	line:30
 mnist	../ExamCorrector/bin/handwriting.py	/^mnist = input_data.read_data_sets("MNIST_data\/", one_hot=True)$/;"	kind:variable	line:32
 mnist	../bin/handwriting.py	/^mnist = input_data.read_data_sets("MNIST_data\/", one_hot=True)$/;"	kind:variable	line:32
 models	../ExamCorrector/bin/sentenceclassification.py	/^models = []$/;"	kind:variable	line:53
-models	../bin/sentenceclassification.py	/^models = []$/;"	kind:variable	line:53
 names	../ExamCorrector/bin/sentenceclassification.py	/^names = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'class']$/;"	kind:variable	line:17
-names	../bin/sentenceclassification.py	/^names = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'class']$/;"	kind:variable	line:17
+output	../bin/sentenceclassification.py	/^output = []$/;"	kind:variable	line:56
+output_empty	../bin/sentenceclassification.py	/^output_empty = [0] * len(classes)$/;"	kind:variable	line:58
+output_row	../bin/sentenceclassification.py	/^    output_row = list(output_empty)$/;"	kind:variable	line:74
+pattern_words	../bin/sentenceclassification.py	/^    pattern_words = [stemmer.stem(word.lower()) for word in pattern_words]$/;"	kind:variable	line:67
+pattern_words	../bin/sentenceclassification.py	/^    pattern_words = doc[0]$/;"	kind:variable	line:65
+questionsanswers	../bin/sentenceclassification.py	/^    questionsanswers = fo.rFile("cspeqaa.txt")$/;"	kind:variable	line:15
+rFile	../bin/fileopen.py	/^def rFile(name):$/;"	kind:function	line:6
 seed	../ExamCorrector/bin/sentenceclassification.py	/^seed = 7$/;"	kind:variable	line:47
-seed	../bin/sentenceclassification.py	/^seed = 7$/;"	kind:variable	line:47
 sentenceclassification.py	../ExamCorrector/bin/sentenceclassification.py	1;"	kind:file	line:1
 sentenceclassification.py	../bin/sentenceclassification.py	1;"	kind:file	line:1
+sigmoid	../bin/sentenceclassification.py	/^def sigmoid(x):$/;"	kind:function	line:89
+sigmoid_output_to_derivative	../bin/sentenceclassification.py	/^def sigmoid_output_to_derivative(output):$/;"	kind:function	line:94
+start_time	../bin/sentenceclassification.py	/^start_time = time.time()$/;"	kind:variable	line:211
+think	../bin/sentenceclassification.py	/^def think(sentence, show_details=False):$/;"	kind:function	line:119
+train	../bin/sentenceclassification.py	/^def train(X, y, hidden_neurons=10, alpha=1, epochs=50000, dropout=False, dropout_percent=0.5):$/;"	kind:function	line:130
+training	../bin/sentenceclassification.py	/^training = []$/;"	kind:variable	line:55
+training_data	../bin/sentenceclassification.py	/^training_data = []$/;"	kind:variable	line:13
 url	../ExamCorrector/bin/sentenceclassification.py	/^url = "https:\/\/archive.ics.uci.edu\/ml\/machine-learning-databases\/iris\/iris.data"$/;"	kind:variable	line:16
-url	../bin/sentenceclassification.py	/^url = "https:\/\/archive.ics.uci.edu\/ml\/machine-learning-databases\/iris\/iris.data"$/;"	kind:variable	line:16
 validation_size	../ExamCorrector/bin/sentenceclassification.py	/^validation_size = 0.20$/;"	kind:variable	line:46
-validation_size	../bin/sentenceclassification.py	/^validation_size = 0.20$/;"	kind:variable	line:46
+w	../bin/sentenceclassification.py	/^    w = nltk.word_tokenize(pattern['sentence'])$/;"	kind:variable	line:34
+w	../bin/sentenceclassification.py	/^w = documents[i][0]$/;"	kind:variable	line:80
 warningPrint	../ExamCorrector/bin/handwriting.py	/^def warningPrint():$/;"	kind:function	line:11
 warningPrint	../bin/handwriting.py	/^def warningPrint():$/;"	kind:function	line:11
+words	../bin/sentenceclassification.py	/^words = []$/;"	kind:variable	line:27
+words	../bin/sentenceclassification.py	/^words = [stemmer.stem(w.lower()) for w in words if w not in ignore_words]$/;"	kind:variable	line:44
+words	../bin/sentenceclassification.py	/^words = list(set(words))$/;"	kind:variable	line:45
 x	../ExamCorrector/bin/handwriting.py	/^x = tf.placeholder(tf.float32, [None, 784])$/;"	kind:variable	line:37
 x	../bin/handwriting.py	/^x = tf.placeholder(tf.float32, [None, 784])$/;"	kind:variable	line:37
 y	../ExamCorrector/bin/handwriting.py	/^y = tf.nn.softmax(tf.matmul(x, W) + b)$/;"	kind:variable	line:45
 y	../bin/handwriting.py	/^y = tf.nn.softmax(tf.matmul(x, W) + b)$/;"	kind:variable	line:45
+y	../bin/sentenceclassification.py	/^y = np.array(output)$/;"	kind:variable	line:209
 y_	../ExamCorrector/bin/handwriting.py	/^y_ = tf.placeholder(tf.float32, [None, 10])$/;"	kind:variable	line:47
 y_	../bin/handwriting.py	/^y_ = tf.placeholder(tf.float32, [None, 10])$/;"	kind:variable	line:47
