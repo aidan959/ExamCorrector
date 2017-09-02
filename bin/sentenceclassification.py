@@ -240,6 +240,7 @@ classify("jack blows men")
 print()
 classify("good day", show_details=True)
 wordToClassify=""
-while wordToClassify is not "end":
+while "end" not in wordToClassify:
     wordToClassify = input()
     classify(wordToClassify)
+print("Program completed")
