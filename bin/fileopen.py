@@ -10,7 +10,7 @@ def rFile(name):
     currentclassifier = ""
     linesnclassifiers = {}
     classifierlist = []
-    filelines = []
+    filelines = [] 
     with fileObj as f:
         for line in f:
             line = line.replace("\n","")

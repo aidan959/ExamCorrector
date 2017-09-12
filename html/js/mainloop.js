@@ -8,4 +8,5 @@ function questionList(){
         full_list = full_list + desc[i] + '<br>'
     }
     $("#container").text(full_list);     
-  }
+}
+questionList()

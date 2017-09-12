@@ -37,3 +37,12 @@
 .main {
     margin-top: 30px; /* Add a top margin to avoid content overlay */
 }
+.container {
+    width: 50%;
+    height:97%; 
+    float:right;
+
+}
+h3 {
+    text-align: center;
+}
