@@ -1,12 +1,65 @@
-var desc=[
-    "manhole cover on foothpath on barrog gaa grounds kilbarrack road loose.",
-    "Footpath at driveway to 17 Maywood Lawn in bad state of disrepair."
-];
-function questionList(){
-    var full_list = ""
-    for(var i=0; i<desc.length; ++i){
-        full_list = full_list + desc[i] + '<br>'
+function qLoader(){
+  /**
+  //Questions need 
+  //1) a question section as a number
+  //2) a question's second section as a number
+  //3) the question 
+  //Possible Method:
+  var questions = 
+  {
+    questionID1: 0,
+    questionID2: 0,
+    questionSTR: ""
+  };
+*/
+  //Question list(LONG)
+  //SAMPLE
+  //FROM 2017 PAPER
+  var questions=
+  [
+    {id: 111, question: "How many Sustainable Development Goals are there?"},
+    {id: 112, question: "What did the Millennium Development Goals tackle?"},
+    {id: 121, question: "Using the information on the webpage, complete the following sentences: In the world () million go hungry everyday. {his includes more than million children who are under five years of age."},
+    {id: 122, question: "What is the world’s biggest health problem?"},
+    {id: 123, question: "What does Sustainable Development Goal 2 aim to do by 2030"},
+    {id: 131, question: "What is needed to reach Sustainable Development Goal 2?"},
+    {id: 141, question: "Your CSPE class would like to invite a person from Concern to come to talk to your class about world {unger.  Describe two steps that your class would have to take to organise the visit. First Step:"},
+    {id: 142, question: "Second Step:"},
+    {id: 151, question: "Buzz Aldren, the astronaut who was the second man to walk on the moon, said,  “If we can conquer space we can {onquer world hunger.”  Your CSPE class wants to have a debate with this title.  Give one argument in favour of this {oint of view and one argument against. Argument in favour:"},
+    {id: 152, question: "Argument against"}
+  ]
+  for (var i = 0; i< questions.length; i++){
+    var input = document.createElement('input'); 
+    input.type = "text"; 
+    //...    
+    console.log("GAY");
+    document.getElementsByTagName('questions').innerHTML += "<span id=" + questions[i].id.toString() + ">" + questions[i].question + "</span><br>"; 
+    $("#questions").html("<span id=" + questions[i].id.toString() + ">" + questions[i].question + "</span><br>");
+    
+  }
+  var samplefile="file:///file.txt";
+  /**function readFile(file){
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET",file,false)
+    rawFile.onreadystatechange
+    = 
+    function ()
+    {
+      if(rawFile.readyState===4)
+      {
+        if(rawFile.statuts === 200 || rawFile.status == 0)
+        {
+          var allText=rawFile.responseText;
+          alert(allText);
+        }
+      }
     }
-    $("#container").text(full_list);     
+    rawFile.send(null);
+  }**/
+  function listCharacters(){
+  
+  }
+  
 }
-questionList()
+//create new question loader as ql
+qLoader();

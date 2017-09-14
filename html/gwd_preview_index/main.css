@@ -53,11 +53,9 @@
 .marksnumber{
     position: absolute;
     text-align: right;
-    margin-left:800px;
-    margin-right: 0px;
-    position:relative;
-    
-    
+    margin-left:100px;
+    margin-right: 100px;
+    border-bottom: 1px solid #FF0000;
 }
 .container {
     width: 50%;

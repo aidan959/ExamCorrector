@@ -18,9 +18,8 @@ except FileNotFoundError:
     print("No file")
 print(questionsanswers)
 for key, value in questionsanswers.items():
-    for sent in value: 
+    for sent in value:
         training_data.append({"class":key,"sentence":sent})
-
 # 3 classes of training data
 
 
@@ -48,9 +47,9 @@ words = list(set(words))
 # remove duplicates
 classes = list(set(classes))
 
-print (len(documents), "documents")
-print (len(classes), "classes", classes)
-print (len(words), "unique stemmed words", words)
+print(len(documents), "documents")
+print(len(classes), "classes", classes)
+print(len(words), "unique stemmed words", words)
 
 # create our training data
 training = []
