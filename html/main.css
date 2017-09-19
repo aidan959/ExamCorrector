@@ -38,6 +38,13 @@
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
 }
+.question{
+
+    color: rgb(0, 0, 0);
+}
+.questionid{
+    color: rgb(30, 30, 30);
+}
 .input1{
     margin-left: 1px;
 }
