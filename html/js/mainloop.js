@@ -1,3 +1,4 @@
+
 function qLoader(){
   /**
   //Questions need 
@@ -23,19 +24,22 @@ function qLoader(){
     {id: 122, question: "What is the world’s biggest health problem?"},
     {id: 123, question: "What does Sustainable Development Goal 2 aim to do by 2030"},
     {id: 131, question: "What is needed to reach Sustainable Development Goal 2?"},
-    {id: 141, question: "Your CSPE class would like to invite a person from Concern to come to talk to your class about world {unger.  Describe two steps that your class would have to take to organise the visit. First Step:"},
+    {id: 141, question: "Your CSPE class would like to invite a person from Concern to come to talk to your class about world hunger. Describe two steps that your class would have to take to organise the visit. <br> First Step:"},
     {id: 142, question: "Second Step:"},
     {id: 151, question: "Buzz Aldren, the astronaut who was the second man to walk on the moon, said,  “If we can conquer space we can {onquer world hunger.”  Your CSPE class wants to have a debate with this title.  Give one argument in favour of this {oint of view and one argument against. Argument in favour:"},
     {id: 152, question: "Argument against"}
   ]
-  for (var i = 0; i< questions.length; i++){
+  var lastID=0;
+  for (var i = 0; i < questions.length; i++){
     var input = document.createElement('input'); 
-    input.type = "text"; 
-    //...    
-    console.log("GAY");
-    document.getElementsByTagName('questions').innerHTML += "<span id=" + questions[i].id.toString() + ">" + questions[i].question + "</span><br>"; 
-    $("#questions").html("<span id=" + questions[i].id.toString() + ">" + questions[i].question + "</span><br>");
     
+    input.type = "text"; 
+   
+    //...    
+    qNumber = idToNumber(questions[i].id.toString(), lastID);
+    //document.getElementsByTagName('questions').innerHTML += "<span id=" + questions[i].id.toString() + ">" + questions[i].question + "</span><br>"; 
+    $("#questions").append("<span class=" + "q" + questions[i].id.toString() + "questions " + ">" + qNumber + questions[i].question + "</span><br>");
+    lastID=questions[i].id;
   }
   var samplefile="file:///file.txt";
   /**function readFile(file){
@@ -60,6 +64,68 @@ function qLoader(){
   
   }
   
+}
+
+function idToNumber(id, lastID)
+{
+  var output = null;
+  var qNum, qPart, qRNumeral ="";
+  var idArray=[];
+  var returnVal="";
+  var qNum;
+  var qPart;
+  var qRNumeral;
+  var space = " ";
+  var oldIDArray=[];
+  var tab = "&nbsp";
+  lastID=lastID.toString();
+  if ($.type(id) === "string"){
+   
+    try{
+      if (id.length==3){
+        idArray = strSplt(id, idArray)
+        oldIDArray = strSplt(lastID, oldIDArray);
+        qNum = idArray[0];
+        qPart = idArray[1];
+        qRNumeral = idArray[2];
+        
+        console.log(idArray.join("")); 
+        console.log(lastID);
+
+        if(idArray[0] != oldIDArray[0]){
+          returnVal += char = '0ABCDEFGHIJK'[qNum] + space;
+        }
+        else{
+          returnVal += tab + tab + tab + tab;
+        }
+        
+        returnVal += char = '01234567'[qPart] + space;
+        returnVal += char = '0iiiiiiiiiii'[qRNumeral] +space;
+        returnVal += ")" + space;
+        return(returnVal);
+              
+    
+      }
+      else{
+        console.log("String is too long or too short.")
+      }
+    }    
+    catch(err) {
+      console.log("ID is inputed as an int, or as an invalid type")
+    }
+  }
+  else{
+    console.log("The value passed is not string")
+    return("NOT A STRING")
+  }
+}
+function strSplt(s, a )
+{
+  do{ 
+    a.push(s.substring(0, 1));
+  } 
+  while( (s = s.substring(1, s.length)) != "" );
+  return(a);
 }
 //create new question loader as ql
 qLoader();
