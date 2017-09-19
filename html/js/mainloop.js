@@ -1,5 +1,7 @@
 
+
 function qLoader(){
+  //VARIABLE DEFINITION
   /**
   //Questions need 
   //1) a question section as a number
@@ -32,7 +34,7 @@ function qLoader(){
   var lastID=0;
   for (var i = 0; i < questions.length; i++){
     var input = document.createElement('input'); 
-    
+    var qNumber;
     input.type = "text"; 
    
     //...    
@@ -42,27 +44,7 @@ function qLoader(){
     lastID=questions[i].id;
   }
   var samplefile="file:///file.txt";
-  /**function readFile(file){
-    var rawFile = new XMLHttpRequest();
-    rawFile.open("GET",file,false)
-    rawFile.onreadystatechange
-    = 
-    function ()
-    {
-      if(rawFile.readyState===4)
-      {
-        if(rawFile.statuts === 200 || rawFile.status == 0)
-        {
-          var allText=rawFile.responseText;
-          alert(allText);
-        }
-      }
-    }
-    rawFile.send(null);
-  }**/
-  function listCharacters(){
   
-  }
   
 }
 
@@ -91,16 +73,20 @@ function idToNumber(id, lastID)
         
         console.log(idArray.join("")); 
         console.log(lastID);
-
+        //Check if is the same base question as not to repeat numbers
         if(idArray[0] != oldIDArray[0]){
           returnVal += char = '0ABCDEFGHIJK'[qNum] + space;
         }
         else{
           returnVal += tab + tab + tab + tab;
         }
-        
+        if(idArray[1] != oldIDArray[1]){
         returnVal += char = '01234567'[qPart] + space;
-        returnVal += char = '0iiiiiiiiiii'[qRNumeral] +space;
+        }
+        else{
+          returnVal += tab + tab + tab;
+        }
+        returnVal += ["invalid ID","i","ii", "iii", "iv", "v", "vi", "vii", "viii"][qRNumeral] +space;
         returnVal += ")" + space;
         return(returnVal);
               
@@ -127,5 +113,30 @@ function strSplt(s, a )
   while( (s = s.substring(1, s.length)) != "" );
   return(a);
 }
-//create new question loader as ql
 qLoader();
+
+
+//USELESS CODE ATM: SAVED FOR REFERENCE AND POSSIBLE FUTURE USE
+
+
+/**function readFile(file){
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET",file,false)
+    rawFile.onreadystatechange
+    = 
+    function ()
+    {
+      if(rawFile.readyState===4)
+      {
+        if(rawFile.statuts === 200 || rawFile.status == 0)
+        {
+          var allText=rawFile.responseText;
+          alert(allText);
+        }
+      }
+    }
+    rawFile.send(null);
+  }
+  function listCharacters(){
+    
+  }**/
