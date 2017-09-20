@@ -19,7 +19,7 @@ except FileNotFoundError:
 print(questionsanswers)
 for key, value in questionsanswers.items():
     for sent in value:
-        training_data.append({"class":key,"sentence":sent})
+        training_data.append({"class":key, "sentence":sent})
 # 3 classes of training data
 
 

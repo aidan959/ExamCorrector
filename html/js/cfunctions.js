@@ -84,3 +84,48 @@ function strSplt(s, a) {
   while ((s = s.substring(1, s.length)) != "");
   return (a);
 }
+/** function rFile(file){
+ *    var rawFile = new XMLHttpRequest();
+ *    rawFile.open("GET", file, false);
+ *    rawFile.onreadystatechange = function ()
+ *    {
+ *        if(rawFile.readyState === 4)
+ *        {
+ *            if(rawFile.status === 200 || rawFile.status == 0)
+ *            {
+ *                var allText = rawFile.responseText;
+ *                alert(allText);
+ *            }
+ *        }
+ *    }
+ *    rawFile.send(null);
+ *}
+**/
+//FILE READER
+function readFile(file){
+    
+    var file = this.files[0];
+    var fileLines = [];
+    var qID;
+    var qQuestion;
+    var questions = [
+       
+    ];
+    var reader = new FileReader();
+    reader.onload = function(progressEvent){
+    // Entire file
+    console.log(this.result);
+
+    // By lines
+    var lines = this.result.split('\n');
+    for(var line = 0; line < lines.length; line++){
+        fileLines.push(lines[line]);
+        qID = lines[line].substring(0,2);
+        qQuestion = lines[line].substring(3);
+        questions.push({qID:ID, qQuestion:question})
+        
+        
+    }
+    };
+    reader.readAsText(file);
+}
