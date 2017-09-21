@@ -48,6 +48,7 @@ function qLoader() {
      * redundant
      * document.getElementsByTagName('questions').innerHTML += "<span id=" + questions[i].id.toString() + ">" + questions[i].question + "</span><br>"; */
     $("#questions").append("<span class=" + "\"q" + questions[i].id.toString() + " questionid\" " + ">" + qNumber +"</span><span class=" + "\"q" + questions[i].id.toString() + " question\" " + ">"+ questions[i].question + "</span><br>");
+    $("#questions").append("<input class=\"input\" type=\"text\" placeholder=\"Question Answer\"autocomplete=off name=\" " + questions[i].id.toString() + " \" + /><br>")
     lastID = questions[i].id;
   
   }

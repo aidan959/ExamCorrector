@@ -29,17 +29,18 @@
     margin-left:0px;
     margin-top:0px;
     font-size:40px;
-    font-family: "Arial";
-    
-    
+    font-family: "Arial";    
 }
 .inputs{
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
 }
+.input{
+    margin-left: 40px;
+    width: 500px;
+}
 .question{
-
     color: rgb(0, 0, 0);
 }
 .questionid{
@@ -50,8 +51,6 @@
 }
 .input2{
     margin-left: 40px;
-
-
 }
 /* Main content */
 .main {
@@ -63,14 +62,11 @@
     margin-left:800px;
     margin-right: 0px;
     position:relative;
-    
-    
 }
 .container {
     width: 50%;
     height:97%; 
     float:right;
-
 }
 h3 {
     text-align: center;

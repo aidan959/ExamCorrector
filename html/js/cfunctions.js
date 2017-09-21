@@ -1,3 +1,4 @@
+var allIDS=[];
 //COMMON FUNCTIONS
 function idToNumber(id, lastID) {
   //variable declration
@@ -128,4 +129,8 @@ function readFile(file){
     }
     };
     reader.readAsText(file);
+    allIDS=qID;
+}
+function submitAnswers(){
+    
 }
