@@ -83,11 +83,11 @@ function idToNumber(id, lastID) {
   }
 }
 function strSplt(s, a) {
-  do {
-    a.push(s.substring(0, 1));
-  }
-  while ((s = s.substring(1, s.length)) != "");
-  return (a);
+    do {
+        a.push(s.substring(0, 1));
+    }
+    while ((s = s.substring(1, s.length)) != "");
+    return (a);l
 }
 /** function rFile(file){
  *    var rawFile = new XMLHttpRequest();
@@ -149,7 +149,7 @@ function fillPage(questions){
      * redundant
      * document.getElementsByTagName('questions').innerHTML += "<span id=" + questions[i].id.toString() + ">" + questions[i].question + "</span><br>"; */
     $("#questions").append("<span class=" + "\"q" + questions[i].id.toString() + " questionid\" " + ">" + qNumber +"</span><span class=" + "\"q" + questions[i].id.toString() + " question\" " + ">"+ questions[i].question + "</span><br>");
-    $("#questions").append("<input class=\"input\" type=\"text\" id=\""+questions[i].id.toString()+"\" placeholder=\"Your Answer\"autocomplete=off name=\" " + questions[i].id.toString() + "\" /><br>")
+    $("#questions").append("<input class=\"input\" type=\"text\" id=\""+questions[i].id.toString()+" qInput\" placeholder=\"Your Answer\"autocomplete=off name=\" " + questions[i].id.toString() + "\" /><br>")
     lastID = questions[i].id;
     
   }
