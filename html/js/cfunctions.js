@@ -1,4 +1,5 @@
 var allIDS=[];
+var qAnswers=[];
 //COMMON FUNCTIONS
 function idToNumber(id, lastID) {
   //variable declration
@@ -60,7 +61,10 @@ function idToNumber(id, lastID) {
         //formats the ) onto the string and adds a space for a flusher design.
         returnVal += ")" + space;
 
+        //Sets the global variable for easy access to IDS
+        
         //returns the value of the function to the caller
+
         return (returnVal);
 
 
@@ -129,8 +133,34 @@ function readFile(file){
     }
     };
     reader.readAsText(file);
-    allIDS=qID;
+    
+}
+function fillPage(questions){
+    //old ID for design
+  var lastID = 0;
+  //code that displays the questions on the website with their id.
+  for (var i = 0; i < questions.length; i++) {
+    //variable decleration
+    var qNumber;
+
+    //the function that finds the ID
+    qNumber = idToNumber(questions[i].id.toString(), lastID);
+    /**
+     * redundant
+     * document.getElementsByTagName('questions').innerHTML += "<span id=" + questions[i].id.toString() + ">" + questions[i].question + "</span><br>"; */
+    $("#questions").append("<span class=" + "\"q" + questions[i].id.toString() + " questionid\" " + ">" + qNumber +"</span><span class=" + "\"q" + questions[i].id.toString() + " question\" " + ">"+ questions[i].question + "</span><br>");
+    $("#questions").append("<input class=\"input\" type=\"text\" id=\""+questions[i].id.toString()+"\" placeholder=\"Your Answer\"autocomplete=off name=\" " + questions[i].id.toString() + "\" /><br>")
+    lastID = questions[i].id;
+    
+  }
+  for (var i = 0; i < questions.length;i++){
+    allIDS.push(questions[i].id);
+}
 }
 function submitAnswers(){
-    
+    console.log(allIDS);
+    for (var i=0; i < allIDS.length; i++){
+        qAnswers.push(document.getElementById(allIDS[i].toString()).value);
+        console.log(qAnswers[i]);
+    }
 }

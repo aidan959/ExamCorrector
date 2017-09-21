@@ -34,24 +34,8 @@ function qLoader() {
       { id: 152, question: "Argument against" }
 
     ]
-
-  //old ID for design
-  var lastID = 0;
-  //code that displays the questions on the website with their id.
-  for (var i = 0; i < questions.length; i++) {
-    //variable decleration
-    var qNumber;
-
-    //the function that finds the ID
-    qNumber = idToNumber(questions[i].id.toString(), lastID);
-    /**
-     * redundant
-     * document.getElementsByTagName('questions').innerHTML += "<span id=" + questions[i].id.toString() + ">" + questions[i].question + "</span><br>"; */
-    $("#questions").append("<span class=" + "\"q" + questions[i].id.toString() + " questionid\" " + ">" + qNumber +"</span><span class=" + "\"q" + questions[i].id.toString() + " question\" " + ">"+ questions[i].question + "</span><br>");
-    $("#questions").append("<input class=\"input\" type=\"text\" placeholder=\"Question Answer\"autocomplete=off name=\" " + questions[i].id.toString() + " \" + /><br>")
-    lastID = questions[i].id;
+  fillPage(questions);
   
-  }
 }
 
 
