@@ -148,8 +148,11 @@ function fillPage(questions){
     /**
      * redundant
      * document.getElementsByTagName('questions').innerHTML += "<span id=" + questions[i].id.toString() + ">" + questions[i].question + "</span><br>"; */
-    $("#questions").append("<span class=" + "\"q" + questions[i].id.toString() + " questionid\" " + ">" + qNumber +"</span><span class=" + "\"q" + questions[i].id.toString() + " question\" " + ">"+ questions[i].question + "</span><br>");
-    $("#questions").append("<input class=\"input\" type=\"text\" id=\""+questions[i].id.toString()+" qInput\" placeholder=\"Your Answer\"autocomplete=off name=\" " + questions[i].id.toString() + "\" /><br>")
+    $("#questions").append("<span class=" + "\"qID" + questions[i].id.toString() + " questionid\" " + ">" +
+    qNumber +"</span><span id=\"q" + questions[i].id.toString() + "\" class=" + "\"q" + questions[i].id.toString() + "\" " + ">"+ questions[i].question + "</span><br>");
+    $("#questions").append("<input class=\"input\" type=\"text\" id=\"" +
+    questions[i].id.toString()+"\" placeholder=\"Your Answer\"autocomplete=off name=\" " + 
+    questions[i].id.toString() + "\" /><br>")
     lastID = questions[i].id;
     
   }
@@ -158,9 +161,18 @@ function fillPage(questions){
 }
 }
 function submitAnswers(){
-    console.log(allIDS);
-    for (var i=0; i < allIDS.length; i++){
-        qAnswers.push(document.getElementById(allIDS[i].toString()).value);
-        console.log(qAnswers[i]);
+  var warningText= document.getElementById("issues");
+  var qProblem=document.getElementById("questions");
+  console.log(allIDS);
+  for (var i=0; i < allIDS.length; i++){
+    if (document.getElementById(allIDS[i].toString()).value == ""){
+      $("q"+allIDS[i].toString()).append("*");
+      warningText.textContent="Some of the text boxes are blank.";
     }
+    else{
+      qAnswers.push(document.getElementById(allIDS[i].toString()).value);
+      console.log(qAnswers[i]);
+    }   
+
+  }
 }
