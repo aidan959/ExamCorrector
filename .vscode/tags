@@ -26,7 +26,7 @@ output_row	../bin/sentenceclassification.py	/^    output_row = list(output_empty
 pattern_words	../bin/sentenceclassification.py	/^    pattern_words = [stemmer.stem(word.lower()) for word in pattern_words]$/;"	kind:variable	line:67
 pattern_words	../bin/sentenceclassification.py	/^    pattern_words = doc[0]$/;"	kind:variable	line:65
 questionsanswers	../bin/sentenceclassification.py	/^    questionsanswers = fo.rFile("cspeqaa.txt")$/;"	kind:variable	line:16
-rFile	../bin/fileopen.py	/^def rFile(name):$/;"	kind:function	line:6
+r_file	../bin/fileopen.py	/^def r_file(name):$/;"	kind:function	line:4
 sentenceclassification.py	../bin/sentenceclassification.py	1;"	kind:file	line:1
 sigmoid	../bin/sentenceclassification.py	/^def sigmoid(x):$/;"	kind:function	line:89
 sigmoid_output_to_derivative	../bin/sentenceclassification.py	/^def sigmoid_output_to_derivative(output):$/;"	kind:function	line:94

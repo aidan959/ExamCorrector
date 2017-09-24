@@ -51,13 +51,13 @@ function idToNumber(id, lastID) {
         }
         //checks if the id is the same as the old one
         if (idArray[1] != oldIDArray[1]) {
-          returnVal += char = '01234567'[qPart] + space;
+          returnVal += char = '0123456789'[qPart] + space;
         }
         else {
           returnVal += tab + tab + tab;
         }
         //Appends I, II etc to question
-        returnVal += ["invalid ID", "i", "ii", "iii", "iv", "v", "vi", "vii", "vii"][qRNumeral];
+        returnVal += ["invalid ID", "i", "ii", "iii", "iv", "v", "vi", "vii", "vii", "viii", "ix", "x"][qRNumeral];
         //formats the ) onto the string and adds a space for a flusher design.
         returnVal += ")" + space;
 
