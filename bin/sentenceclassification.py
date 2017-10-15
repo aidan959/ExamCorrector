@@ -3,7 +3,7 @@ import fileopen as fo
 from nltk.stem.lancaster import LancasterStemmer
 import os
 import json
-
+import glob
 import datetime
 import nltk
 stemmer =LancasterStemmer()
@@ -13,7 +13,7 @@ DECLARATION
 """
 training_data = []
 try:
-    questionsanswers = fo.rFile("cspeqaa.txt")
+    questionsanswers = fo.read_sample_answers("cspeqaa.txt")
 except FileNotFoundError:
     print("No file")
 print(questionsanswers)
@@ -234,13 +234,18 @@ def classify(sentence, show_details=False):
     print ("%s \n classification: %s" % (sentence, return_results))
     return return_results
 
-classify("two thousand one")
-classify("jack blows men")
+
 
 print()
-classify("good day", show_details=True)
+#SAMPLE CLASSIFIER: classify("good day", show_details=True)
 wordToClassify=""
 while "end" not in wordToClassify:
     wordToClassify = input()
     classify(wordToClassify)
 print("Program completed")
+
+os.chdir("/answers")
+for file in glob.glob("*.txt"):
+    print(file)
+
+#for ".txt" in read

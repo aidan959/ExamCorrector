@@ -37,7 +37,38 @@ function qLoader() {
   fillPage(questions);
   
 }
-
+//LOADFTP
+try
+{
+    //Settings required to establish a connection with the server
+    this.ftpRequest = FtpWebRequest.Create(new Uri("ftp://www.aidan.ml"));
+    this.ftpRequest.Method = WebRequestMethods.Ftp.UploadFile;
+    this.ftpRequest.Proxy = null;
+    this.ftpRequest.UseBinary = true;
+    this.ftpRequest.Credentials = new NetworkCredential("qRequester", "samacora");
+ 
+    //Selection of file to be uploaded
+    ff = new FileInfo("questions.txt");//e.g.: c:\\Test.txt
+    fileContents = new byte[ff.Length];
+ 
+    //will destroy the object immediately after being used
+    using (fr = ff.OpenRead())
+    {
+        fr.Read(fileContents, 0, Convert.ToInt32(ff.Length));
+    }
+ 
+    using ( writer = ftpRequest.GetRequestStream())
+    {
+        writer.Write(fileContents, 0, fileContents.Length);
+    }
+    //Gets the FtpWebResponse of the uploading operation
+    this.ftpResponse = this.ftpRequest.GetResponse();
+    Response.Write(this.ftpResponse.StatusDescription); //Display response
+}
+catch (webex)
+{
+    this.Message = webex.ToString();
+}
 
 //Runs code once.
 qLoader();
@@ -46,7 +77,7 @@ qLoader();
 //USELESS CODE At The Moment: SAVED FOR REFERENCE AND POSSIBLE FUTURE USE
 
 
-/**function readFile(file){
+function readFile(file){
     var rawFile = new XMLHttpRequest();
     rawFile.open("GET",file,false)
     rawFile.onreadystatechange
@@ -58,12 +89,28 @@ qLoader();
         if(rawFile.statuts === 200 || rawFile.status == 0)
         {
           var allText=rawFile.responseText;
-          alert(allText);
+          
+          questions=allText.split("\n");
+          qWID=[];
+          questions.forEach(function(line) {
+            if(line.includes("[") && line.includes("]")) {
+              line.replace("[","")
+              line.replace("]","")
+              currentID = line;
+            }
+            else{
+              qWID.push({id: currentID.ToInt32, question: line});
+            }
+            
+          }, this);
+          return qWID;
         }
       }
     }
     rawFile.send(null);
   }
+  /**
   function listCharacters(){
     
-  }**/
+  }*/
+  

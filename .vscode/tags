@@ -25,8 +25,9 @@ output_empty	../bin/sentenceclassification.py	/^output_empty = [0] * len(classes
 output_row	../bin/sentenceclassification.py	/^    output_row = list(output_empty)$/;"	kind:variable	line:74
 pattern_words	../bin/sentenceclassification.py	/^    pattern_words = [stemmer.stem(word.lower()) for word in pattern_words]$/;"	kind:variable	line:67
 pattern_words	../bin/sentenceclassification.py	/^    pattern_words = doc[0]$/;"	kind:variable	line:65
-questionsanswers	../bin/sentenceclassification.py	/^    questionsanswers = fo.rFile("cspeqaa.txt")$/;"	kind:variable	line:16
-r_file	../bin/fileopen.py	/^def r_file(name):$/;"	kind:function	line:4
+questionsanswers	../bin/sentenceclassification.py	/^    questionsanswers = fo.read_sample_answers("cspeqaa.txt")$/;"	kind:variable	line:16
+read_answer	../bin/fileopen.py	/^def read_answer(name):$/;"	kind:function	line:35
+read_sample_answers	../bin/fileopen.py	/^def read_sample_answers(name):$/;"	kind:function	line:4
 sentenceclassification.py	../bin/sentenceclassification.py	1;"	kind:file	line:1
 sigmoid	../bin/sentenceclassification.py	/^def sigmoid(x):$/;"	kind:function	line:89
 sigmoid_output_to_derivative	../bin/sentenceclassification.py	/^def sigmoid_output_to_derivative(output):$/;"	kind:function	line:94
@@ -36,14 +37,15 @@ synapse	../bin/sentenceclassification.py	/^    synapse = json.load(data_file) $/
 synapse_0	../bin/sentenceclassification.py	/^    synapse_0 = np.asarray(synapse['synapse0']) $/;"	kind:variable	line:225
 synapse_1	../bin/sentenceclassification.py	/^    synapse_1 = np.asarray(synapse['synapse1'])$/;"	kind:variable	line:226
 synapse_file	../bin/sentenceclassification.py	/^synapse_file = 'synapses.json' $/;"	kind:variable	line:222
+test.py	../bin/test.py	1;"	kind:file	line:1
 think	../bin/sentenceclassification.py	/^def think(sentence, show_details=False):$/;"	kind:function	line:119
 train	../bin/sentenceclassification.py	/^def train(X, y, hidden_neurons=10, alpha=1, epochs=50000, dropout=False, dropout_percent=0.5):$/;"	kind:function	line:130
 training	../bin/sentenceclassification.py	/^training = []$/;"	kind:variable	line:55
 training_data	../bin/sentenceclassification.py	/^training_data = []$/;"	kind:variable	line:14
 w	../bin/sentenceclassification.py	/^    w = nltk.word_tokenize(pattern['sentence'])$/;"	kind:variable	line:34
 w	../bin/sentenceclassification.py	/^w = documents[i][0]$/;"	kind:variable	line:80
-wordToClassify	../bin/sentenceclassification.py	/^    wordToClassify = input()$/;"	kind:variable	line:244
-wordToClassify	../bin/sentenceclassification.py	/^wordToClassify=""$/;"	kind:variable	line:242
+wordToClassify	../bin/sentenceclassification.py	/^    wordToClassify = input()$/;"	kind:variable	line:243
+wordToClassify	../bin/sentenceclassification.py	/^wordToClassify=""$/;"	kind:variable	line:241
 words	../bin/sentenceclassification.py	/^words = []$/;"	kind:variable	line:27
 words	../bin/sentenceclassification.py	/^words = [stemmer.stem(w.lower()) for w in words if w not in ignore_words]$/;"	kind:variable	line:44
 words	../bin/sentenceclassification.py	/^words = list(set(words))$/;"	kind:variable	line:45
