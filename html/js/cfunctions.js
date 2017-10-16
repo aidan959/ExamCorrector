@@ -176,3 +176,98 @@ function submitAnswers(){
 
   }
 }
+//TODO: MAKE DYNAMIC
+//TEXT FILE READ USING HTTPS, IMPORTANT TO CHANGE WHERE FROM WHEN MIGRATING!
+function LoadFile(){
+  var oFrame = document.getElementById("frmFile");
+  var qWID = [];
+  var currentID=0;
+  var strRawContents = oFrame.contentWindow.document.body.childNodes[0].innerHTML;
+  while (strRawContents.indexOf("\r") >= 0)
+      strRawContents = strRawContents.replace("\r", "");
+  var arrLines = strRawContents.split("\n");
+  alert("File " + oFrame.src + " has " + arrLines.length + " lines");
+  for (var i = 0; i < arrLines.length; i++) {
+      var curLine = arrLines[i];
+      if(curLine.includes("[") && curLine.includes("]")) {
+        curLine=curLine.replace("[","");
+        curLine=curLine.replace("]","");
+        currentID = curLine;
+      }
+      else{
+        qWID.push({id: parseInt(currentID), question: curLine});
+      }
+  }
+  return (qWID);
+
+}
+/*/USELESS CODE At The Moment: SAVED FOR REFERENCE AND POSSIBLE FUTURE USE\
+function readFile(file){
+    $.get("http://www.whatever.com/foo.txt", null, function(response){
+      $("#theTextArea").val(response); // where theTextArea is the ID of the textarea you want to put the data into.
+    });
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET",file,false)
+    rawFile.onreadystatechange
+    = 
+    function ()
+    {
+      if(rawFile.readyState===4)
+      {
+        if(rawFile.statuts === 200 || rawFile.status == 0)
+        {
+          var allText=rawFile.responseText;
+          
+          questions=allText.split("\n");
+          qWID=[];
+          questions.forEach(function(line) {
+            if(line.includes("[") && line.includes("]")) {
+              line.replace("[","")
+              line.replace("]","")
+              currentID = line;
+            }
+            else{
+              qWID.push({id: currentID.ToInt32, question: line});
+            }
+            
+          }, this);
+          return qWID;
+        }
+      }
+    }
+    rawFile.send(null);
+  }
+  /**
+  function listCharacters(){
+    
+  }*/
+  
+/*function getQuestions(){
+
+  //LOADFTP
+ 
+      //Settings required to establish a connection with the server
+      this.ftpRequest = this.ftpWebRequest.Create("ftp://192.168.1.6/files/questions.txt");
+      this.ftpRequest.Method = WebRequestMethods.Ftp.DownloadFile;
+      this.ftpRequest.Proxy = null;
+      this.ftpRequest.UseBinary = true;
+      this.ftpRequest.Credentials = new NetworkCredential("examcorrector", "ADow@9064");
+  
+      //Selection of file to be uploaded
+      ff = new FileInfo("files/questions.txt");//e.g.: c:\\Test.txt
+      
+  
+     response = request.GetResponse();  
+      
+      responseStream = response.GetResponseStream();  
+      reader = new StreamReader(responseStream);  
+      Console.WriteLine(reader.ReadToEnd());  
+
+      Console.WriteLine("Download Complete, status {0}", response.StatusDescription);  
+
+      reader.Close();  
+      response.Close();    
+
+  
+
+}*/
