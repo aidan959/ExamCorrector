@@ -25,7 +25,7 @@ function qLoader() {
     [
       { id: 111, question: "How many Sustainable Development Goals are there?" },
       { id: 112, question: "What did the Millennium Development Goals tackle?" },
-      { id: 121, question: "Using the information on the webpage, complete the following sentences: In the world () million go hungry everyday. {his includes more than million children who are under five years of age." },
+      { id: 121, question: "Using the information on the webpage, complete the following sentences: In the world () million go hungry everyday. This includes more than million children who are under five years of age." },
       { id: 122, question: "What is the world’s biggest health problem?" },
       { id: 123, question: "What does Sustainable Development Goal 2 aim to do by 2030" },
       { id: 131, question: "What is needed to reach Sustainable Development Goal 2?" },
@@ -34,50 +34,26 @@ function qLoader() {
       { id: 151, question: "Buzz Aldren, the astronaut who was the second man to walk on the moon, said,  “If we can conquer space we can {onquer world hunger.”  Your CSPE class wants to have a debate with this title.  Give one argument in favour of this {oint of view and one argument against. Argument in favour:" },
       { id: 152, question: "Argument against" }
     ]
+    
   fillPage(questions);
   
-}
-//LOADFTP
-try
-{
-    //Settings required to establish a connection with the server
-    this.ftpRequest = FtpWebRequest.Create(new Uri("ftp://www.aidan.ml"));
-    this.ftpRequest.Method = WebRequestMethods.Ftp.UploadFile;
-    this.ftpRequest.Proxy = null;
-    this.ftpRequest.UseBinary = true;
-    this.ftpRequest.Credentials = new NetworkCredential("qRequester", "samacora");
- 
-    //Selection of file to be uploaded
-    ff = new FileInfo("questions.txt");//e.g.: c:\\Test.txt
-    fileContents = new byte[ff.Length];
- 
-    //will destroy the object immediately after being used
-    using (fr = ff.OpenRead())
-    {
-        fr.Read(fileContents, 0, Convert.ToInt32(ff.Length));
-    }
- 
-    using ( writer = ftpRequest.GetRequestStream())
-    {
-        writer.Write(fileContents, 0, fileContents.Length);
-    }
-    //Gets the FtpWebResponse of the uploading operation
-    this.ftpResponse = this.ftpRequest.GetResponse();
-    Response.Write(this.ftpResponse.StatusDescription); //Display response
-}
-catch (webex)
-{
-    this.Message = webex.ToString();
 }
 
 //Runs code once.
 qLoader();
 
 
-//USELESS CODE At The Moment: SAVED FOR REFERENCE AND POSSIBLE FUTURE USE
 
+//TEXT FILE READ USING HTTP, IMPORTANT TO CHANGE WHERE FROM!
+function LoadFile(){
 
+  
+}
+//USELESS CODE At The Moment: SAVED FOR REFERENCE AND POSSIBLE FUTURE USE\
 function readFile(file){
+    $.get("http://www.whatever.com/foo.txt", null, function(response){
+      $("#theTextArea").val(response); // where theTextArea is the ID of the textarea you want to put the data into.
+    });
     var rawFile = new XMLHttpRequest();
     rawFile.open("GET",file,false)
     rawFile.onreadystatechange
@@ -114,3 +90,32 @@ function readFile(file){
     
   }*/
   
+/*function getQuestions(){
+
+  //LOADFTP
+ 
+      //Settings required to establish a connection with the server
+      this.ftpRequest = this.ftpWebRequest.Create("ftp://192.168.1.6/files/questions.txt");
+      this.ftpRequest.Method = WebRequestMethods.Ftp.DownloadFile;
+      this.ftpRequest.Proxy = null;
+      this.ftpRequest.UseBinary = true;
+      this.ftpRequest.Credentials = new NetworkCredential("examcorrector", "ADow@9064");
+  
+      //Selection of file to be uploaded
+      ff = new FileInfo("files/questions.txt");//e.g.: c:\\Test.txt
+      
+  
+     response = request.GetResponse();  
+      
+      responseStream = response.GetResponseStream();  
+      reader = new StreamReader(responseStream);  
+      Console.WriteLine(reader.ReadToEnd());  
+
+      Console.WriteLine("Download Complete, status {0}", response.StatusDescription);  
+
+      reader.Close();  
+      response.Close();    
+
+  
+
+}*/
