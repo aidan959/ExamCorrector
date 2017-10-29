@@ -6,6 +6,18 @@
     top: 0; /* Position the navbar at the top of the page */
     width: 100%; /* Full width */
 }
+body{
+    color:#000;
+    background-color:#fff;
+}
+
+#container{
+   /*Styling for any element with the id="container" */
+           width:1000px; /* The width is fixed by pixels */
+            height:800px; /* The height is fixed by pixels*/
+            color:#fff;
+             background-color:red;
+}
 
 /* Links inside the navbar */
 .navbar a {

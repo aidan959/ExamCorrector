@@ -186,7 +186,7 @@ function LoadFile(){
   while (strRawContents.indexOf("\r") >= 0)
       strRawContents = strRawContents.replace("\r", "");
   var arrLines = strRawContents.split("\n");
-  alert("File " + oFrame.src + " has " + arrLines.length + " lines");
+  //alert("File " + oFrame.src + " has " + arrLines.length + " lines");
   for (var i = 0; i < arrLines.length; i++) {
       var curLine = arrLines[i];
       if(curLine.includes("[") && curLine.includes("]")) {

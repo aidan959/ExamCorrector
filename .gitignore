@@ -2,3 +2,5 @@ bin/synapses.json
 .vscode/launch.json
 .vscode/tags
 .vscode/
+passwords.txt
+answers/
