@@ -168,10 +168,13 @@ function submitAnswers(){
     if (document.getElementById(allIDS[i].toString()).value == ""){
       $("q"+allIDS[i].toString()).append("*");
       warningText.textContent="Some of the text boxes are blank.";
+      return false;
     }
     else{
       qAnswers.push(document.getElementById(allIDS[i].toString()).value);
       console.log(qAnswers[i]);
+      //$.get("submit.php");
+      return false;
     }   
 
   }

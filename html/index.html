@@ -34,11 +34,12 @@ REMOVE
             State Examination 
             </h1>
   </div>
+  <form enctype="multipart/form-data" action="" method="post">
   <div id="inputs" class="inputs gwd-div-1ch2">
     Examination Number:
-    <input type="text" name="fname" class="input1" autofocus="true"><br><br>
+    <input type="text" name="examnumber" class="input1" autofocus="true"><br><br>
     Centre Number:
-    <input type="text" name="lname" class="input2"><br>
+    <input type="text" name="examcentre" class="input2"><br>
     
   </div>
   <div id="instructions">
@@ -60,13 +61,15 @@ REMOVE
   </div>
   <br><br>
   <!--<form>-->
-  <form action="index.php" method="POST">
+
   <div id="questions" class="questions">
   </div>
   <script type="text/javascript" src="js/mainloop.js"></script>
   <div id="loader" class="loader"/>
   <br>
-  <input  type="submit" class="submit" id="submit" onclick="submitAnswers();" />
+  <!--input type="submit" class="submit" id="submit" onclick="submitAnswers();" -->
+  <input type="button" name="submit" id="submit" value="Submit" />
+  
   <br>
   </form>
   <span id="issues">Everything is working!</span>
