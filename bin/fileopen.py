@@ -15,7 +15,7 @@ def read_sample_answers(name):
         for line in f:
             line = line.replace("\n", "")
             # Checks if is classifier
-            if "//" is in line:
+            if "//" in line:
                 pass
             else:  
                 if "[" and "]" in line or one_shot is False:

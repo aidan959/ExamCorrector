@@ -164,20 +164,22 @@ function submitAnswers(){
   var warningText= document.getElementById("issues");
   var qProblem=document.getElementById("questions");
   console.log(allIDS);
-  for (var i=0; i < allIDS.length; i++){
-    if (document.getElementById(allIDS[i].toString()).value == ""){
-      $("q"+allIDS[i].toString()).append("*");
-      warningText.textContent="Some of the text boxes are blank.";
-      return false;
-    }
-    else{
-      qAnswers.push(document.getElementById(allIDS[i].toString()).value);
-      console.log(qAnswers[i]);
-      //$.get("submit.php");
-      return false;
-    }   
+  $.get("submit.php");
+  //for (var i=0; i < allIDS.length; i++){
+  //  if (document.getElementById(allIDS[i].toString()).value == ""){
+  //    $("q"+allIDS[i].toString()).append("*");
+  //    warningText.textContent="Some of the text boxes are blank.";
+  //    $.get("submit.php");
+  //    return false;
+  //  }
+  //  else{
+  //    qAnswers.push(document.getElementById(allIDS[i].toString()).value);
+  //    console.log(qAnswers[i]);
+  //    $.get("submit.php");
+  //    return false;
+  //  }   
 
-  }
+  //}
 }
 //TODO: MAKE DYNAMIC
 //TEXT FILE READ USING HTTPS, IMPORTANT TO CHANGE WHERE FROM WHEN MIGRATING!

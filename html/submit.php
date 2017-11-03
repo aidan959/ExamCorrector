@@ -12,16 +12,16 @@ $conn = new PDO($dsn, $username, $password);
 
 
 //Attempt insert query execution
-if(isset($_POST['submit'])) {
+//if(isset($_POST['submit'])) {
     $enumber = $_POST['examnumber'];
     $ecnumber = $_POST['examcentre'];
     
 
-    $sql = $conn->prepare("INSERT INTO students VALUES ($examnumber, '$examcentre');");
+    $sql = $conn->prepare("INSERT INTO students VALUES (123456, '$examcentre');");
     
         $sql->execute();
      
-}
+//}
 
 
 

@@ -6,6 +6,7 @@ import json
 import glob
 import datetime
 import nltk
+nltk.download('punkt')
 stemmer =LancasterStemmer()
 """
 VARIABLE
@@ -240,7 +241,7 @@ print()
 #SAMPLE CLASSIFIER: classify("good day", show_details=True)
 wordToClassify=""
 while "end" not in wordToClassify:
-    wordToClassify = input()
+    wordToClassify = raw_input()
     classify(wordToClassify)
 print("Program completed")
 
