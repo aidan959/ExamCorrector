@@ -19,7 +19,7 @@ $conn = new PDO($dsn, $username, $password);
 
     $sql = $conn->prepare("INSERT INTO students VALUES (123456, '$examcentre');");
     
-        $sql->execute();
+    $sql->execute();
      
 //}
 

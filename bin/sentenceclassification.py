@@ -7,7 +7,7 @@ import glob
 import datetime
 import nltk
 nltk.download('punkt')
-stemmer =LancasterStemmer()
+stemmer = LancasterStemmer()
 """
 VARIABLE
 DECLARATION
@@ -80,8 +80,8 @@ for doc in documents:
 i = 0
 w = documents[i][0]
 print ([stemmer.stem(word.lower()) for word in w])
-print (training[i])
-print (output[i])
+print training[i]
+print output[i]
 
 import numpy as np
 import time
@@ -94,7 +94,7 @@ def sigmoid(x):
 # convert output of sigmoid function to its derivative
 def sigmoid_output_to_derivative(output):
     return output*(1-output)
- 
+
 def clean_up_sentence(sentence):
     # tokenize the pattern
     sentence_words = nltk.word_tokenize(sentence)
@@ -109,7 +109,7 @@ def bow(sentence, words, show_details=False):
     # bag of words
     bag = [0]*len(words)  
     for s in sentence_words:
-        for i,w in enumerate(words):
+        for i, w in enumerate(words):
             if w == s: 
                 bag[i] = 1
                 if show_details:
@@ -248,5 +248,4 @@ print("Program completed")
 os.chdir("/answers")
 for file in glob.glob("*.txt"):
     print(file)
-
 #for ".txt" in read

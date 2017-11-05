@@ -1,33 +1,51 @@
 <?php
 include('index.html');
-function testfun()
-{
-    error_log('INVALID INPUT ON USER LOGIN', 3);
-   
-}
-if(array_key_exists('submit',$_POST)){
-   testfun();
-}
 $servername = gethostname();
 $dsn = 'mysql:host=localhost;dbname=examcorrector';
 $username = "examiner";
 $password = "aidan";
-
-// Create connection
-$conn = new PDO($dsn, $username, $password);
-/*} catch (Exception $e){
-    echo "Caught exception: ", $e->getMessage(), "\n";
-}*/
-
-
-//Attempt insert query execution
-//if(isset($_POST['submit'])) {
+$questions = fopen("questions.txt", "r") or die("Unable to open file!");
+$ids= array();
+$weberrors=array();
+$answers=array();
+while (!feof($questions)) {
+    $line = fgets($questions);
+    if(strpos($line,'[') !== false){
+        $line = str_replace("[", "", $line, $i);
+        $line = str_replace("]", "", $line, $i);
+        array_push($ids, $line);
+        //CHECKS IF IT LISTS THE IDS RIGHT
+        //echo $line, "<br>";
+    }
+    
+ }
+if(isset($_POST['submit'])) {
+    $conn = new PDO($dsn, $username, $password);
     $enumber = $_POST['examnumber'];
     $ecnumber = $_POST['examcentre'];
-    
-
-    $sql = $conn->prepare("INSERT INTO students VALUES (234567, 'TEST13');");
-    
+    foreach($ids as &$id)
+    {
+        array_push($answers, $_POST['q'+$id]);
+        $dbanswers= implode("//", $answers);
+    }
+    if(empty($enumber) or empty($ecnumber))
+    {
+        if(empty($enumber))
+        {
+            array_push($weberrors,"exam number");
+        }
+        if(empty($ecnumber)){
+            array_push($weberrors,"exam centre");
+        }
+        //Do something if either are  empty
+    }
+    else
+    {
+        $sql = $conn->prepare("INSERT INTO students VALUES ($enumber, '$ecnumber','$dbanswers');");
         $sql->execute();
-     
+    }
+    foreach($weberrors as &$error)
+    echo "<br>","There is an issue with your", $error; 
+    
+}
 ?>
