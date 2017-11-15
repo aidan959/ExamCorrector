@@ -1,0 +1,26 @@
+[111]
+23
+twenty 3
+twenty three
+[111x]
+24
+25
+26
+22
+21
+20
+[112]
+world hunger
+hunger
+food for homeless
+feeding homeless
+giving food
+[121]
+7
+7 million
+7000000
+seven million
+[122]
+food
+hunger
+underfeeding
