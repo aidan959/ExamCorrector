@@ -149,7 +149,7 @@ function fillPage(questions){
      * redundant
      * document.getElementsByTagName('questions').innerHTML += "<span id=" + questions[i].id.toString() + ">" + questions[i].question + "</span><br>"; */
     $("#questions").append("<span class=" + "\"qID" + questions[i].id.toString() + " questionid\" " + ">" +
-    qNumber +"</span><span id=\"q" + questions[i].id.toString() + "\" class=" + "\"q" + questions[i].id.toString() + "\" " + ">"+ questions[i].question + "</span><br>");
+    qNumber +"</span><span id=\"q" + questions[i].id.toString() + "\" class=" + "form-control \"q" + questions[i].id.toString() + "\" " + ">"+ questions[i].question + "</span><br>");
     $("#questions").append("<input class=\"input\" type=\"text\" id=\"" +
     questions[i].id.toString()+"\" placeholder=\"Your Answer\"autocomplete=off name=\" " + 
     questions[i].id.toString() + "\" /><br>")

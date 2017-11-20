@@ -10,15 +10,11 @@
 REMOVE
   
   <meta http-equiv="refresh" content=5>-->
-  <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-  <script src="js/cfunctions.js"></script>
-  <title>E-Examiner</title>
-  <link rel="stylesheet" href="main.css">
+
   <meta name="description" content="A CSPE online examiner corrected by machine learning.">
   <meta name="keywords" content="state examinations, machine learning, future">
   <meta name="generator" content="Google Web Designer 1.9.0.0619">
-  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-  <iframe id="frmFile" src="questions.txt" onload="qLoader();" style="display: none;"></iframe>
+  <title>E-Examiner</title>
 </head>
 
 <body class="htmlNoPages">
@@ -43,7 +39,9 @@ REMOVE
     
   </div>
   <div id="instructions">
-    <h3 ><centre>INSTRUCTIONS</centre></h3>
+    <h3 style="height: 30px;
+              display: flex;
+              align-items: center; ">INSTRUCTIONS:</h3>
     <ol>
       <li><strong>Make sure to write your examination number in the box above.</strong></li><br>
       <li>Answer	<strong >all questions</strong> in Section 1 <span id="marksnumber" class="marksnumber">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (18 marks)</span><br><br>
@@ -62,7 +60,7 @@ REMOVE
   <br><br>
   <!--<form>-->
 
-  <div id="questions" class="questions">
+  <div id="questions" class="questions form-group">
   </div>
   <script type="text/javascript" src="js/mainloop.js"></script>
   <div id="loader" class="loader"/>
@@ -74,5 +72,11 @@ REMOVE
   </form>
   <span id="issues">Everything is working!</span>
 </body>
-
+<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/cfunctions.js"></script>
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="shortcut icon" type="image/x-icon" src="favicon.ico" />
+<iframe id="frmFile" src="questions.txt" onload="qLoader();" style="display: none;"></iframe>
 </html>

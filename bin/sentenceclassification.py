@@ -6,6 +6,9 @@ import json
 import glob
 import datetime
 import nltk
+import numpy as np
+import time
+
 nltk.download('punkt')
 stemmer = LancasterStemmer()
 """
@@ -33,7 +36,7 @@ ignore_words = ['?']
 for pattern in training_data:
     # tokenize each word in the sentence
     w = nltk.word_tokenize(pattern['sentence'])
-    # add to our words list
+    # add to our WORDS list
     words.extend(w)
     # add to documents in our corpus
     documents.append((w, pattern['class']))
@@ -50,7 +53,7 @@ classes = list(set(classes))
 
 print(len(documents), "documents")
 print(len(classes), "classes", classes)
-print(len(words), "unique stemmed words", words)
+print(len(words), "unique stemmed WORDS", words)
 
 # create our training data
 training = []
@@ -58,7 +61,7 @@ output = []
 # create an empty array for our output
 output_empty = [0] * len(classes)
 
-# training set, bag of words for each sentence
+# training set, bag of WORDS for each sentence
 for doc in documents:
     # initialize our bag of words
     bag = []
@@ -68,8 +71,10 @@ for doc in documents:
     pattern_words = [stemmer.stem(word.lower()) for word in pattern_words]
     # create our bag of words array
     for w in words:
-        bag.append(1) if w in pattern_words else bag.append(0)
-
+        if w in pattern_words:
+            bag.append(1)
+        else:
+            bag.append(0)
     training.append(bag)
     # output is a '0' for each tag and '1' for current tag
     output_row = list(output_empty)
@@ -83,20 +88,17 @@ print ([stemmer.stem(word.lower()) for word in w])
 print training[i]
 print output[i]
 
-import numpy as np
-import time
-
 # compute sigmoid nonlinearity
 def sigmoid(x):
-    output = 1/(1+np.exp(-x))
-    return output
+    returns = 1/(1+np.exp(-x))
+    return returns
 
 # convert output of sigmoid function to its derivative
 def sigmoid_output_to_derivative(output):
     return output*(1-output)
 
 def clean_up_sentence(sentence):
-    # tokenize the pattern
+    """tokenize the pattern"""
     sentence_words = nltk.word_tokenize(sentence)
     # stem each word
     sentence_words = [stemmer.stem(word.lower()) for word in sentence_words]
@@ -104,23 +106,23 @@ def clean_up_sentence(sentence):
 
 # return bag of words array: 0 or 1 for each word in the bag that exists in the sentence
 def bow(sentence, words, show_details=False):
-    # tokenize the pattern
+    """tokenize the pattern"""
     sentence_words = clean_up_sentence(sentence)
     # bag of words
     bag = [0]*len(words)  
     for s in sentence_words:
         for i, w in enumerate(words):
-            if w == s: 
+            if w == s:
                 bag[i] = 1
                 if show_details:
-                    print ("found in bag: %s" % w)
+                    print "found in bag: %s" % w
 
     return(np.array(bag))
 
 def think(sentence, show_details=False):
     x = bow(sentence.lower(), words, show_details)
     if show_details:
-        print ("sentence:", sentence, "\n bow:", x)
+        print "sentence:", sentence, "\n bow:", x
     # input layer is our bag of words
     l0 = x
     # matrix multiplication of input and hidden layer
@@ -130,8 +132,11 @@ def think(sentence, show_details=False):
     return l2
 def train(X, y, hidden_neurons=10, alpha=1, epochs=50000, dropout=False, dropout_percent=0.5):
 
-    print ("Training with %s neurons, alpha:%s, dropout:%s %s" % (hidden_neurons, str(alpha), dropout, dropout_percent if dropout else '') )
-    print ("Input matrix: %sx%s    Output matrix: %sx%s" % (len(X),len(X[0]),1, len(classes)) )
+    print "Training with %s neurons, alpha:%s, dropout:%s %s" % (hidden_neurons,
+                                                                 str(alpha),
+                                                                 dropout,
+                                                                 dropout_percent if dropout else '')
+    print "Input matrix: %sx%s    Output matrix: %sx%s" % (len(X), len(X[0]), 1, len(classes))
     np.random.seed(1)
 
     last_mean_error = 1
@@ -186,6 +191,7 @@ def train(X, y, hidden_neurons=10, alpha=1, epochs=50000, dropout=False, dropout
             synapse_0_direction_count += np.abs(((synapse_0_weight_update > 0)+0) - ((prev_synapse_0_weight_update > 0) + 0))
             synapse_1_direction_count += np.abs(((synapse_1_weight_update > 0)+0) - ((prev_synapse_1_weight_update > 0) + 0))        
         
+
         synapse_1 += alpha * synapse_1_weight_update
         synapse_0 += alpha * synapse_0_weight_update
         
@@ -220,17 +226,17 @@ print ("processing time:", elapsed_time, "seconds")
 # probability threshold
 ERROR_THRESHOLD = 0.2
 # load our calculated synapse values
-synapse_file = 'synapses.json' 
-with open(synapse_file) as data_file: 
-    synapse = json.load(data_file) 
-    synapse_0 = np.asarray(synapse['synapse0']) 
+synapse_file = 'synapses.json'
+with open(synapse_file) as data_file:
+    synapse = json.load(data_file)
+    synapse_0 = np.asarray(synapse['synapse0'])
     synapse_1 = np.asarray(synapse['synapse1'])
 
 def classify(sentence, show_details=False):
     results = think(sentence, show_details)
 
-    results = [[i,r] for i,r in enumerate(results) if r>ERROR_THRESHOLD ] 
-    results.sort(key=lambda x: x[1], reverse=True) 
+    results = [[i,r] for i,r in enumerate(results) if r>ERROR_THRESHOLD ]
+    results.sort(key=lambda x: x[1], reverse=True)
     return_results =[[classes[r[0]],r[1]] for r in results]
     print ("%s \n classification: %s" % (sentence, return_results))
     return return_results
