@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 """ USED FOR OPENING AND INTERPRETING ANSWERS AS VARIABLES"""
 import MySQLdb
+import unidecode
 
 # Reads the file and creates a list of classifiers(questions) and their meanings
 def read_sample_answers(name):
@@ -25,14 +26,14 @@ def read_sample_answers(name):
                     one_shot = True
                     line = line.replace("[", "")
                     line = line.replace("]", "")
-                    classifierlist.append(line)
+                    classifierlist.append(line.encode('utf-8'))
                     currentclassifier = line
 
                     filelines = []
                 else:
                     if line != "":
-                        #print(line)
-                        filelines.append(line)
+                        print line
+                        filelines.append(u''.join(unidecode.unidecode('utf-8')))
                         lines_and_classifiers[currentclassifier] = filelines
 
         return lines_and_classifiers
@@ -66,17 +67,17 @@ def read_sample_answers(name):
 #         return lines_and_question""".decode('utf8')
 def DBConnect():
     """Returns a database connection for the program to use"""
-    return (MySQLdb.connect(host="stmarysys.org",  # your host
-                            user="s4u155",       # username
-                            passwd="devKycBu",     # password
-                            db="s4u155_examcorrector"))   # name of the database)
+    return (MySQLdb.connect(host="localhost",  # your host
+                            user="examiner",       # username
+                            passwd="aidan",     # password
+                            db="examcorrector"))   # name of the database)
 
 def get_students():
     """Gets all of the student ids"""
     dc = DBConnect()
     cursor = dc.cursor()
     examnumbers = []
-    cursor.execute("CALL s4u155_examcorrector.select_examnumbers();")
+    cursor.execute("CALL examcorrector.select_examnumbers();")
     for row in cursor.fetchall():
        for innerrow in row:
             examnumbers.append(innerrow)
@@ -90,7 +91,7 @@ def read_answers(exam_number):
     get_students()
     dc = DBConnect()
     cursor = dc.cursor()
-    cursor.execute("call s4u155_examcorrector.select_answer_by_examnumber({0})".format(str(exam_number)))
+    cursor.execute("call examcorrector.select_answer_by_examnumber({0})".format(str(exam_number)))
     for row in cursor.fetchall():
         answers = row[0].split("//")
     return answers
@@ -109,4 +110,4 @@ def submit_result(exam_number, marks):
     """
     dc = DBConnect()
     cursor = dc.cursor()
-    cursor.execute("call s4u155_examcorrector.submit_results({},{});".format(str(exam_number), str(marks)))
+    cursor.execute("call submit_results("+ str(exam_number) +", "+ str(marks) +")")

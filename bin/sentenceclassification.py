@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 """Classifies Sentences As right or wrong answers"""
 import fileopen as fo
 from nltk.stem.lancaster import LancasterStemmer
@@ -8,6 +10,11 @@ import datetime
 import nltk
 import numpy as np
 import time
+import logging
+
+global logger
+logger = logging
+logger.basicConfig(filename='example.log',level=logging.DEBUG)
 
 nltk.download('punkt')
 stemmer = LancasterStemmer()
@@ -16,12 +23,11 @@ VARIABLE
 DECLARATION
 """
 training_data = []
-try:
-    questionsanswers = fo.read_sample_answers("cspeqaa.txt")
-except FileNotFoundError:
-    print("No file")
-print(questionsanswers)
-for key, value in questionsanswers.items():
+#try:
+questionsanswers = fo.read_sample_answers("cspeqaa.txt")
+#except FileNotFoundError:
+#    logger.warning("No file")
+for key, value in list(questionsanswers.items()):
     for sent in value:
         training_data.append({"class":key, "sentence":sent})
 # 3 classes of training data
@@ -51,9 +57,9 @@ words = list(set(words))
 # remove duplicates
 classes = list(set(classes))
 
-print(len(documents), "documents")
-print(len(classes), "classes", classes)
-print(len(words), "unique stemmed WORDS", words)
+logger.info(str(len(documents))+ "documents")
+logger.info(str(len(classes))+ "classes" + str(classes))
+logger.info(str(len(words)) + "unique stemmed WORDS" + str(words))
 
 # create our training data
 training = []
@@ -84,9 +90,9 @@ for doc in documents:
 # sample training/output
 i = 0
 w = documents[i][0]
-print ([stemmer.stem(word.lower()) for word in w])
-print training[i]
-print output[i]
+logger.info([stemmer.stem(word.lower()) for word in w])
+logger.info(training[i])
+logger.info(output[i])
 
 # compute sigmoid nonlinearity
 def sigmoid(x):
@@ -115,14 +121,14 @@ def bow(sentence, words, show_details=False):
             if w == s:
                 bag[i] = 1
                 if show_details:
-                    print "found in bag: %s" % w
+                    logger.info("found in bag: {0}".format(w))
 
     return(np.array(bag))
 
 def think(sentence, show_details=False):
     x = bow(sentence.lower(), words, show_details)
     if show_details:
-        print "sentence:", sentence, "\n bow:", x
+        logger.info("sentence:", sentence, "\n bow:", x)
     # input layer is our bag of words
     l0 = x
     # matrix multiplication of input and hidden layer
@@ -132,11 +138,11 @@ def think(sentence, show_details=False):
     return l2
 def train(X, y, hidden_neurons=10, alpha=1, epochs=50000, dropout=False, dropout_percent=0.5):
 
-    print "Training with %s neurons, alpha:%s, dropout:%s %s" % (hidden_neurons,
+    logger.info("Training with {0} neurons, alpha:{1}, dropout:{2} {3}".format(hidden_neurons,
                                                                  str(alpha),
                                                                  dropout,
-                                                                 dropout_percent if dropout else '')
-    print "Input matrix: %sx%s    Output matrix: %sx%s" % (len(X), len(X[0]), 1, len(classes))
+                                                                 dropout_percent if dropout else ''))
+    logger.info("Input matrix: %{0}x%{1}    Output matrix: %{2}x%{3}".format(len(X), len(X[0]), 1, len(classes)))
     np.random.seed(1)
 
     last_mean_error = 1
@@ -150,7 +156,7 @@ def train(X, y, hidden_neurons=10, alpha=1, epochs=50000, dropout=False, dropout
     synapse_0_direction_count = np.zeros_like(synapse_0)
     synapse_1_direction_count = np.zeros_like(synapse_1)
         
-    for j in iter(range(epochs+1)):
+    for j in iter(list(range(epochs+1))):
 
         # Feed forward through layers 0, 1, and 2
         layer_0 = X
@@ -167,10 +173,10 @@ def train(X, y, hidden_neurons=10, alpha=1, epochs=50000, dropout=False, dropout
         if (j% 10000) == 0 and j > 5000:
             # if this 10k iteration's error is greater than the last iteration, break out
             if np.mean(np.abs(layer_2_error)) < last_mean_error:
-                print ("delta after "+str(j)+" iterations:" + str(np.mean(np.abs(layer_2_error))) )
+                logger.info("delta after "+str(j)+" iterations:" + str(np.mean(np.abs(layer_2_error))) )
                 last_mean_error = np.mean(np.abs(layer_2_error))
             else:
-                print ("break:", np.mean(np.abs(layer_2_error)), ">", last_mean_error )
+                logger.debug("break:", np.mean(np.abs(layer_2_error)), ">", last_mean_error )
                 break
                 
         # in what direction is the target value?
@@ -202,7 +208,7 @@ def train(X, y, hidden_neurons=10, alpha=1, epochs=50000, dropout=False, dropout
 
     # persist synapses
     synapse = {'synapse0': synapse_0.tolist(), 'synapse1': synapse_1.tolist(),
-               'datetime': now.strftime("%Y-%m-%d %H:%M"),
+               'datetime': now.strftime("%Y-%m-%\d %H:%M"),
                'words': words,
                'classes': classes
               }
@@ -210,7 +216,7 @@ def train(X, y, hidden_neurons=10, alpha=1, epochs=50000, dropout=False, dropout
 
     with open(synapse_file, 'w') as outfile:
         json.dump(synapse, outfile, indent=4, sort_keys=True)
-    print ("saved synapses to:", synapse_file)
+    logger.info ("saved synapses to:" + synapse_file)
 
 X = np.array(training)
 y = np.array(output)
@@ -220,7 +226,7 @@ start_time = time.time()
 train(X, y, hidden_neurons=20, alpha=0.1, epochs=100000, dropout=False, dropout_percent=0.2)
 
 elapsed_time = time.time() - start_time
-print ("processing time:", elapsed_time, "seconds")
+logger.info("processing time:" + str(elapsed_time) + "seconds")
 
 
 # probability threshold
@@ -238,15 +244,43 @@ def classify(sentence, show_details=False):
     results = [[i,r] for i,r in enumerate(results) if r>ERROR_THRESHOLD ]
     results.sort(key=lambda x: x[1], reverse=True)
     return_results =[[classes[r[0]],r[1]] for r in results]
-    print ("%s \n classification: %s" % (sentence, return_results))
-    return return_results
+    logger.debug("{0} \n classification: {1}".format(sentence, return_results))
+    return results
 
+def correctExam(students):
+    """function that corrects the exams"""
+    for i in students:
+        answermarks = []
+        totalmarks = 0
+        answermarks = correctStudent(i, answermarks)
 
+        totalmarks = (len(answermarks)) * 2
+        print("Total: "+ str(totalmarks))
+        print("Marks: "+ str(sum(answermarks)))
 
-print()
-#SAMPLE CLASSIFIER: classify("good day", show_details=True)
+        try:
+            result = sum(answermarks)/totalmarks
+        except:
+            print("student got zero or error")
+            result = 0
+        fo.submit_result(i, result)
+        print("Result: "+str(result*100) + "%")
 
+def correctStudent(number, marks):
+    for row in fo.read_answers(number):
+        print(row)
+        print(classify(row))
+        try:
+            if classify(row)[0][1] > float(0.850):
+                print("Correct")
+                marks.append(2)
+            elif classify(row)[0][1] > float(0.75):
+                print("incorrrect")
+                marks.append(1)
+            else:
+                marks.append(0)
+        except IndexError:
+            marks.append(0)
+    return marks
 
-for i in fo.get_students():
-    for row in fo.read_answers(i):
-        classify(row)
+correctExam(fo.get_students())

@@ -1,26 +1,82 @@
 [111]
-23
-twenty 3
-twenty three
-[111x]
-24
-25
-26
-22
-21
-20
+Local
+European
+Dáil
+Dail
+Dail Elections
+Presedential
+Referendums
+Local elections	
+European elections	
+Dáil Elections	
+Presidential elections
+Referendum
 [112]
-world hunger
-hunger
-food for homeless
-feeding homeless
-giving food
+Fine Gael
+Fianna Fáil
+Sinn Féin
+Labour Party
+Solidarity
+People Before Profit
+Green Party
+Social Democrats
+Workers and Unemployed action
+Renua Ireland
+Workers' Party
+Republican Sinn Féin
+[113]
+Leo Varadkar
+Varadkar
+[114]
+Frances Fitzgerald
+no one
+none
+francis
+Fitz gerald
+Fitzgerald
 [121]
-7
-7 million
-7000000
-seven million
+158
+hundred-and-fifty-eight
 [122]
-food
-hunger
-underfeeding
+Teachtaí Dála
+[123]
+A coalition government is a cabinet of a parliamentary government in which many or multiple political parties cooperate, reducing the dominance of any one party within that coalition.
+Multiple parties working together running a country.
+When multiple parties form a government
+[124]
+Dáil Éireann
+Seanad Éireann
+dail eireann
+seanad eireann
+[125]
+Richard Bruton
+Rick Bruton
+Bruton
+[126]
+Eoghan Murphy
+eoin Murphy
+owen Murphy
+[999]
+159
+157
+156
+155
+154
+153
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+200
+300
+160
+150
