@@ -4,3 +4,5 @@ bin/synapses.json
 .vscode/
 passwords.txt
 answers/
+html/js/bootstrap
+html/css/bootstrap
