@@ -12,6 +12,8 @@ Dáil Elections
 Presidential elections
 Referendum
 By elections
+By election
+By election and general election
 [112]
 Fine Gael
 Fianna Fáil
@@ -25,10 +27,19 @@ Workers and Unemployed action
 Renua Ireland
 Workers' Party
 Republican Sinn Féin
+Sinn Fein, Social Democrats, People before profit
 [113]
 Leo Varadkar
+Leo varradkar
 Varadkar
 [114]
+Frances Fitzgerald
+frances
+Fitzgerald
+Franis Fitzgerald
+fitzgerald
+fitzgereld
+Francis Fitzgerald
 Frances Fitzgerald
 no one
 none
@@ -37,27 +48,36 @@ Fitz gerald
 Fitzgerald
 [121]
 158
+158
+158
+166
+166
 166
 hundred-and-fifty-eight
 [122]
-Teachtaí Dála
-Teachtaí Dáile
+Tachtai daile
 Teachta daile
 Teachtai Dala
-Teachtaí­ Dala 
-Teachtai dalai 
+Tachtai daile
+Teachtai dalai
+TeachaÃ­ DÃ¡ta 
+Teachtaí Dála
+Teachtaí Dáile
 [123]
 A coalition government is a cabinet of a parliamentary government in which many or multiple political parties cooperate, reducing the dominance of any one party within that coalition.
 Multiple parties working together running a country.
 When multiple parties form a government
 When two governments come together
+When two or more parties come together to form a government and a cabinet
+Two parties make up one government 
 A coalition government is when two parties join together to make the government. 
 [124]
 Dáil Éireann
 Seanad Éireann
 dail eireann
 seanad eireann
-The president the daile and the seana
+The president the daile and the seanaid
+President, Seanad, Dail
 [125]
 Richard Bruton
 Rick Bruton
@@ -65,5 +85,20 @@ Bruton
 burton
 [126]
 Eoghan Murphy
-eoin Murphy
+eoin Murphy 
 owen Murphy
+[999]
+none
+dont know
+no idea
+hitler
+stalin
+john
+116
+16 
+aidan
+sean quinn
+108
+51
+16
+1516

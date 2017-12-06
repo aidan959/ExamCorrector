@@ -245,14 +245,14 @@ def classify(sentence, show_details=False):
     results.sort(key=lambda x: x[1], reverse=True)
     return_results =[[classes[r[0]],r[1]] for r in results]
     logger.debug("{0} \n classification: {1}".format(sentence, return_results))
-    return results
+    return results, return_results[0][0]
 
-def correctExam(students):
+def correctExam(students, questionids):
     """function that corrects the exams"""
     for i in students:
         answermarks = []
         totalmarks = 0
-        answermarks, markedstring = correctStudent(i, answermarks)
+        answermarks, markedstring = correctStudent(i, answermarks, questionids)
 
         totalmarks = (len(answermarks)) * 2
         #print("Total: "+ str(totalmarks))
@@ -266,26 +266,34 @@ def correctExam(students):
         fo.submit_result(i, result, markedstring)
         #print("Result: "+str(result*100) + "%")
 
-def correctStudent(number, marks):
+def correctStudent(number, marks, answers):
     marksString=""
+    i=0
     for row in fo.read_answers(number):
+        
         #print(row)
         #print(classify(row))
         try:
-            if classify(row)[0][1] > float(0.850):
+            percent, question = classify(row)
+            #print (percent)
+            #print (question)
+            #print (answers[i])
+            if percent[0][1] > float(0.850) and question == answers[i]:
                 #print("Correct")
                 marksString += "2"
                 marks.append(2)
-            elif classify(row)[0][1] > float(0.75):
+            elif percent[0][1] > float(0.75) and question == answers[i]:
                 marksString += "1"
                 #print("incorrrect")
                 marks.append(1)
             else:
                 marksString += "0"
                 marks.append(0)
+            i += 1
         except IndexError:
             marksString += "0"
             marks.append(0)
+            i += 1
     return marks, marksString
 
-correctExam(fo.get_students())
+correctExam(fo.get_students(), fo.get_questions("cspeqaa.txt"))

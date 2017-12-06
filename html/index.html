@@ -1,82 +1,69 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <!--- REMOVE
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><!--- REMOVE
         REMOVE
       REMOVE
     REMOVE
   REMOVE
 REMOVE
   
-  <meta http-equiv="refresh" content=5>-->
-
-  <meta name="description" content="A CSPE online examiner corrected by machine learning.">
-  <meta name="keywords" content="state examinations, machine learning, future">
-  <meta name="generator" content="Google Web Designer 1.9.0.0619">
-  <title>E-Examiner</title>
+  <meta http-equiv="refresh" content=5>--><meta name="description" content="A CSPE online examiner corrected by machine learning." /><meta name="keywords" content="state examinations, machine learning, future" />
+	
+	<title>E-Examiner</title>
+	<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script> <script src="js/bootstrap.bundle.min.js"></script>
+	<script src="js/cfunctions.js"></script>
+	<script type="text/javascript" src="js/mainloop.js"></script>
+	<iframe id="frmFile" onload="qLoader();" src="questions.txt" style="display: none;"></iframe>
+    <link href="css/main.css" rel="stylesheet" />
+<link href="css/bootstrap.min.css" rel="stylesheet" />
+<link rel="shortcut icon" src="favicon.ico" type="image/x-icon" />
 </head>
-
 <body class="htmlNoPages">
-  <div class="navbar">
-    <a href="#home">Home</a>
-    <a text-align="Right" href="#endexam">End Exam</a>
-  </div>
-  <div id="top" class="gwd-div-iaha">
-    <h1 class="heading1">
-                <em>Civic Social Political Education</em>
-            </h1>
-    <h1 class="secondheading">
-            State Examination 
-            </h1>
-  </div>
-  <form enctype="multipart/form-data" action="index.php" method="post">
-  <div id="inputs" class="inputs gwd-div-1ch2">
-    Examination Number:
-    <input type="text" name="examnumber" class="input1" autofocus="true"><br><br>
-    Centre Number:
-    <input type="text" name="examcentre" class="input2"><br>
-    
-  </div>
-  <div id="instructions">
-    <h3 style="height: 30px;
+<div class="navbar"><a href="#home">Home</a> <a href="#endexam" text-align="Right">End Exam</a></div>
+
+<div class="gwd-div-iaha" id="top">
+<h1 class="heading1"><em>Civic Social Political Education</em></h1>
+
+<h1 class="secondheading">Christmas Examination</h1>
+</div>
+
+<form id="examination" action="index.php" enctype="multipart/form-data" method="post">
+<div class="inputs gwd-div-1ch2" id="inputs">
+Examination Number: <input autofocus="true" class="input1" maxlength="6" type="number" name="examnumber" id="examnumber" /><br />
+Centre Number: <input class="input2" name="examcentre" id="examcentre" maxlength="6" type="text" /></div>
+<br>
+<div class="inputs gwd-div-1ch2"></div>
+
+<div id="instructions">
+<h3 style="height: 30px;
               display: flex;
               align-items: center; ">INSTRUCTIONS:</h3>
-    <ol>
-      <li><strong>Make sure to write your examination number in the box above.</strong></li><br>
-      <li>Answer	<strong >all questions</strong> in Section 1 <span id="marksnumber" class="marksnumber">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (18 marks)</span><br><br>
-        Answer	<strong >any three questions in</strong>	Section 2 <span id="marksnumber" class="marksnumber">(42 marks)</span> <br><br>
-        Answer	<strong >any one question in	Section	3</strong>	 <span id="marksnumber" class="marksnumber">&nbsp; &nbsp; (20 marks)</span>	<br><br>
-        Total &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span id="marksnumber" class="marksnumber">&nbsp; &nbsp;(80 marks)</span><br><br>
-      </li>
-      <li ><strong> Type your answers in the spaces provided.</strong><br><br>
-      </li>
-      <li ><strong> Press the submit button at the end of the examination.</strong>
-      </li>
-    </ol>
 
-    
-  </div>
-  <br><br>
-  <!--<form>-->
+<ol>
+	<li><strong>Make sure to write your examination number in the box above.</strong></li>
+	<br />
+	<li>Answer <strong>all questions</strong> in Section 1 <span class="marksnumber" id="marksnumber">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (18 marks)</span><br />
+	<br />
+	Answer <strong>any three questions in</strong> Section 2 <span class="marksnumber" id="marksnumber">(42 marks)</span><br />
+	<br />
+	Answer <strong>any one question in Section 3</strong> <span class="marksnumber" id="marksnumber">&nbsp; &nbsp; (20 marks)</span><br />
+	<br />
+	Total &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span class="marksnumber" id="marksnumber">&nbsp; &nbsp;(80 marks)</span><br />
+	&nbsp;</li>
+	<li><strong>Type your answers in the spaces provided.</strong><br />
+	&nbsp;</li>
+	<li><strong>Press the submit button at the end of the examination.</strong></li>
+</ol>
+</div>
+<br />
+<br />
+<!--<form>-->
+<div class="questions form-group" id="questions"></div>
 
-  <div id="questions" class="questions form-group">
-  </div>
-  <script type="text/javascript" src="js/mainloop.js"></script>
-  <div id="loader" class="loader"/>
-  <br>
-  <!--input type="submit" class="submit" id="submit" onclick="submitAnswers();" -->
-  <input type="submit" name="submit" id="submit" value="Submit" />
-  
-  <br>
-  </form>
-  <span id="issues">Everything is working!</span>
+
+<div class="loader" id="loader"><br />
+<!--input type="submit" class="submit" id="submit" onclick="submitAnswers();" --><input class="submit" id="submit" name="submit" type="submit" value="Submit" /><br />
+<span id="issues">Everything is working!</span> </div>
+</form>
 </body>
-<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-<script src="js/bootstrap.bundle.min.js"></script>
-<script src="js/cfunctions.js"></script>
-<link rel="stylesheet" href="css/main.css">
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="shortcut icon" type="image/x-icon" src="favicon.ico" />
-<iframe id="frmFile" src="questions.txt" onload="qLoader();" style="display: none;"></iframe>
 </html>

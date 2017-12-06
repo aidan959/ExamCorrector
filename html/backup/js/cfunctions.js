@@ -7,7 +7,9 @@ function idToNumber(id, lastID) {
   var qNum, qPart, qRNumeral = "";
   var idArray = [];
   var returnVal = "";
-
+  var qNum = "";
+  var qPart = "";
+  var qRNumeral = "";
   var space = " ";
   var oldIDArray = [];
   var tab = "&nbsp";
@@ -20,7 +22,7 @@ function idToNumber(id, lastID) {
       if (id.length == 3) {
 
         //splits the ids into arrays of strings for ease of access
-        idArray = strSplt(id, idArray);
+        idArray = strSplt(id, idArray)
         oldIDArray = strSplt(lastID, oldIDArray);
 
         //sets the qNum qPart and qRNumeral respectivly
@@ -68,24 +70,24 @@ function idToNumber(id, lastID) {
 
       }
       else {
-        console.log("String is too long or too short.");
+        console.log("String is too long or too short.")
       }
     }
     catch (err) {
-      console.log("ID is inputed as an int, or as an invalid type");
+      console.log("ID is inputed as an int, or as an invalid type")
     }
   }
   else {
-    console.log("The value passed is not string");
-    return ("NOT A STRING");
+    console.log("The value passed is not string")
+    return ("NOT A STRING")
   }
 }
 function strSplt(s, a) {
     do {
         a.push(s.substring(0, 1));
     }
-    while ((s = s.substring(1, s.length)) !== "");
-    return (a);
+    while ((s = s.substring(1, s.length)) != "");
+    return (a);l
 }
 /** function rFile(file){
  *    var rawFile = new XMLHttpRequest();
@@ -146,8 +148,11 @@ function fillPage(questions){
     /**
      * redundant
      * document.getElementsByTagName('questions').innerHTML += "<span id=" + questions[i].id.toString() + ">" + questions[i].question + "</span><br>"; */
-    $("#questions").append("<div class=\"field\" ><span class=" + "\"qID" + questions[i].id.toString() + " questionid\" " + ">" +
-    qNumber +"</span><span class=" + "\"q" + questions[i].id.toString() + "\" " + ">"+ questions[i].question + "</span><br>" + "<input class=\"input\" type=\"text\" id=\"q" + questions[i].id.toString() + "\" placeholder=\"Your Answer\"autocomplete=off name=\" " + questions[i].id.toString() + "\" /></div><br>");
+    $("#questions").append("<span class=" + "\"qID" + questions[i].id.toString() + " questionid\" " + ">" +
+    qNumber +"</span><span id=\"q" + questions[i].id.toString() + "\" class=" + "form-control \"q" + questions[i].id.toString() + "\" " + ">"+ questions[i].question + "</span><br>");
+    $("#questions").append("<input class=\"input\" type=\"text\" id=\"" +
+    questions[i].id.toString()+"\" placeholder=\"Your Answer\"autocomplete=off name=\" " + 
+    questions[i].id.toString() + "\" /><br>")
     lastID = questions[i].id;
     
   }
@@ -159,6 +164,7 @@ function submitAnswers(){
   var warningText= document.getElementById("issues");
   var qProblem=document.getElementById("questions");
   console.log(allIDS);
+  $.get("submit.php");
   //for (var i=0; i < allIDS.length; i++){
   //  if (document.getElementById(allIDS[i].toString()).value == ""){
   //    $("q"+allIDS[i].toString()).append("*");
@@ -200,15 +206,6 @@ function LoadFile(){
   return (qWID);
 
 }
-$('#examination').submit(function() {
-  if($("input:empty").length === 0){
-      return true;
-  }
-  else{
-      alert("Some answers are empty!");
-      return false;
-  }
-});
 /*/USELESS CODE At The Moment: SAVED FOR REFERENCE AND POSSIBLE FUTURE USE\
 function readFile(file){
     $.get("http://www.whatever.com/foo.txt", null, function(response){
@@ -251,6 +248,7 @@ function readFile(file){
   }*/
   
 /*function getQuestions(){
+
   //LOADFTP
  
       //Settings required to establish a connection with the server
@@ -269,9 +267,12 @@ function readFile(file){
       responseStream = response.GetResponseStream();  
       reader = new StreamReader(responseStream);  
       Console.WriteLine(reader.ReadToEnd());  
+
       Console.WriteLine("Download Complete, status {0}", response.StatusDescription);  
+
       reader.Close();  
       response.Close();    
-  
-}*/
 
+  
+
+}*/

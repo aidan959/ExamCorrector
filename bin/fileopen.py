@@ -36,6 +36,28 @@ def read_sample_answers(name):
                         lines_and_classifiers[currentclassifier] = filelines
 
         return lines_and_classifiers
+def get_questions(name):
+    """Opens the questions and sample answers text document, and filters it by class."""
+    # Temporary Variables
+    one_shot = False
+    file_obj = open(name, "r")
+    
+    currentclassifier = ""
+    lines_and_classifiers = []
+    classifierlist = []
+    filelines = []
+    with file_obj as f:
+        for line in f:
+            line = line.replace("\n", "")
+            # Checks if is classifier
+            if "[" and "]" in line or one_shot is False:
+                one_shot = True
+                line = line.replace("[", "")
+                line = line.replace("]", "")
+                classifierlist.append(line)
+                currentclassifier = line
+
+    return classifierlist
 #Am now using mySQL
 # """def read_answer(name):
 #     Opens answers from the students.
