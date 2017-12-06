@@ -1,7 +1,22 @@
 {
         "version": "0.2.0",
         "configurations": [
-        
+        {
+            "name": "Python3",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": true,
+            "pythonPath": "/usr/bin/python3",
+            "program": "${file}",
+            "cwd": "${workspaceRoot}/bin",
+            "env": {},
+            "envFile": "${workspaceRoot}/.env",
+            "debugOptions": [
+                "WaitOnAbnormalExit",
+                "WaitOnNormalExit",
+                "RedirectOutput"
+            ]
+        },
             {
                 "name": "Python",
                 "type": "python",

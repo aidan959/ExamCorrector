@@ -101,7 +101,7 @@ for i in get_students():
 for i in get_students():
     for rawr in read_answers(i):
         print rawr"""
-def submit_result(exam_number, marks):
+def submit_result(exam_number, marks, marksString):
     """
     Function to read from database
     :param l: Exam Number
@@ -109,4 +109,4 @@ def submit_result(exam_number, marks):
     """
     dc = DBConnect()
     cursor = dc.cursor()
-    cursor.execute("call s4u155_examcorrector.submit_results({},{});".format(str(exam_number), str(marks)))
+    cursor.execute("call s4u155_examcorrector.submit_results({},{},{});".format(str(exam_number), str(marks), str(marksString)))

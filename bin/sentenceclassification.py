@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""Classifies Sentences As right or wrong answers"""
+#Classifies Sentences As right or wrong answers
 import fileopen as fo
 from nltk.stem.lancaster import LancasterStemmer
 import os
@@ -252,35 +252,40 @@ def correctExam(students):
     for i in students:
         answermarks = []
         totalmarks = 0
-        answermarks = correctStudent(i, answermarks)
+        answermarks, markedstring = correctStudent(i, answermarks)
 
         totalmarks = (len(answermarks)) * 2
-        print("Total: "+ str(totalmarks))
-        print("Marks: "+ str(sum(answermarks)))
+        #print("Total: "+ str(totalmarks))
+        #print("Marks: "+ str(sum(answermarks)))
 
         try:
             result = sum(answermarks)/totalmarks
         except:
-            print("student got zero or error")
+         #   print("student got zero or error")
             result = 0
-        fo.submit_result(i, result)
-        print("Result: "+str(result*100) + "%")
+        fo.submit_result(i, result, markedstring)
+        #print("Result: "+str(result*100) + "%")
 
 def correctStudent(number, marks):
+    marksString=""
     for row in fo.read_answers(number):
-        print(row)
-        print(classify(row))
+        #print(row)
+        #print(classify(row))
         try:
             if classify(row)[0][1] > float(0.850):
-                print("Correct")
+                #print("Correct")
+                marksString += "2"
                 marks.append(2)
             elif classify(row)[0][1] > float(0.75):
-                print("incorrrect")
+                marksString += "1"
+                #print("incorrrect")
                 marks.append(1)
             else:
+                marksString += "0"
                 marks.append(0)
         except IndexError:
+            marksString += "0"
             marks.append(0)
-    return marks
+    return marks, marksString
 
 correctExam(fo.get_students())
