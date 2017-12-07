@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #Classifies Sentences As right or wrong answers
-import fileopen as fo
+import interactions as fo
 from nltk.stem.lancaster import LancasterStemmer
 import os
 import json
@@ -12,9 +12,8 @@ import numpy as np
 import time
 import logging
 
-global logger
 logger = logging
-logger.basicConfig(filename='example.log',level=logging.DEBUG)
+logger.basicConfig(filename='debug.log',level=logging.DEBUG)
 
 nltk.download('punkt')
 stemmer = LancasterStemmer()

@@ -14,12 +14,14 @@ Referendum
 By elections
 By election
 By election and general election
+Presidential and European
 [112]
 Fine Gael
 Fianna Fáil
 Sinn Féin
 Labour Party
 Solidarity
+Labour, sinn féin, Fianna Gháil 0 - 
 People Before Profit
 Green Party
 Social Democrats
@@ -109,3 +111,4 @@ sean quinn
 16
 1516
 1516
+46

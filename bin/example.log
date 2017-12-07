@@ -22740,3 +22740,389 @@ DEBUG:root:Richard Bruton
  classification: [['125', 0.99823260086652532]]
 DEBUG:root:Eoghan Murphy 
  classification: [['126', 0.99669789401141673]]
+INFO:root:100documents
+INFO:root:11classes['111', '124', '121', '122', '123', '113', '999', '126', '114', '112', '125']
+INFO:root:125unique stemmed WORDS['teacht', 'cabinet', 'non', '166', 'quin', 'multipl', 'work', 'fran', '51', 'fin', 'hitl', 'teachaã\xad', 'party', 'fáil', 'within', 'bef', 'solid', 'com', 'dala', 'the', 'uaichtairán', 'burton', 'coop', 'sean', 'teachta', 'seanad', 'mor', 'sin', 'in', 'unemploy', 'act', 'know', 'fraint', 'two', 'bruton', 'murph', 'referendum', '16', 'dail', 'to', ',', '158', 'labo', 'democr', 'fitzgereld', 'which', 'soc', 'dála', 'eoin', 'varadk', 'loc', 'togeth', 'fiann', 'any', 'a', 'teachtaí', 'is', 'uaichtain', 'peopl', 'ireland', 'or', 'renu', 'an', 'gerald', 'domin', 'frant', 'fein', 'run', 'on', 'éirean', 'elect', 'polit', "'", 'arã\xads', 'of', 'reduc', 'dã¡ta', 'ide', 'eogh', 'europ', 'gen', 'no', 'féin', 'dáil', 'leo', 'pres', 'country', 'that', 'dal', 'by', 'up', 'seanaid', 'profit', 'fitzgerald', 'rick', '116', 'many', 'eirean', 'form', 'fitz', 'govern', 'mak', 'varradk', '.', 'referend', 'presid', '108', 'coalit', 'ará', 'stalin', 'tachta', 'aid', 'and', 'gael', 'richard', 'john', 'republ', 'parlia', 'green', '1516', 'hundred-and-fifty-eight', 'join', 'when', 'ow', 'dont']
+INFO:root:['dáil', 'éirean']
+INFO:root:[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+INFO:root:[0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+INFO:root:Training with 20 neurons, alpha:0.1, dropout:False 
+INFO:root:Input matrix: %100x%125    Output matrix: %1x%11
+INFO:root:delta after 10000 iterations:0.00436832497979
+INFO:root:delta after 20000 iterations:0.00355947212385
+INFO:root:delta after 30000 iterations:0.00321629427275
+INFO:root:delta after 40000 iterations:0.00301611837454
+INFO:root:delta after 50000 iterations:0.00288142937624
+INFO:root:delta after 60000 iterations:0.00278302543664
+INFO:root:delta after 70000 iterations:0.00270715698627
+INFO:root:delta after 80000 iterations:0.00264639850626
+INFO:root:delta after 90000 iterations:0.00259634536719
+INFO:root:delta after 100000 iterations:0.00255419947789
+INFO:root:saved synapses to:synapses.json
+INFO:root:processing time:28.02322483062744seconds
+DEBUG:root:Presidential, council 
+ classification: [['124', 0.63434659160473794]]
+DEBUG:root:Fine Gael, Fianna Fáil, Sinn Féin 
+ classification: [['112', 0.99999503118561306]]
+DEBUG:root:Leo Varadkar 
+ classification: [['113', 0.99982023886491722]]
+DEBUG:root:Simon Coveney 
+ classification: []
+DEBUG:root:108 
+ classification: [['999', 0.99758864736631503]]
+DEBUG:root:Teachta Dála 
+ classification: [['122', 0.99797080341454691]]
+DEBUG:root:When two or more parties come together to form a government and a cabinet 
+ classification: [['123', 0.99882691175769689]]
+DEBUG:root:Dáil, Seanad, Executive 
+ classification: [['124', 0.94732464580170628]]
+DEBUG:root:Richard Bruton 
+ classification: [['125', 0.99823307158408425]]
+DEBUG:root:No one, that's why there's no houses 
+ classification: [['114', 0.97226482065512843]]
+DEBUG:root:General and corporal 
+ classification: [['112', 0.58282268644106261]]
+DEBUG:root:Counsel of Ricks, National Socialst Party, Irish Marxist Society 
+ classification: [['112', 0.93515603435073902]]
+DEBUG:root:Greg  
+ classification: []
+DEBUG:root:Referendum presidential 
+ classification: [['111', 0.95257182463456447]]
+DEBUG:root:Fianna fail fine gael sin fein 
+ classification: [['112', 0.99998898692523763]]
+DEBUG:root:Leo varadkar 
+ classification: [['113', 0.99982023886491722]]
+DEBUG:root:Noone 
+ classification: []
+DEBUG:root:51 
+ classification: [['999', 0.99749474182659859]]
+DEBUG:root:Teachta daile 
+ classification: [['122', 0.99643455509652479]]
+DEBUG:root:When two or more parties work together 
+ classification: [['123', 0.88300884776013322], ['112', 0.36281061018562732]]
+DEBUG:root:Aidans gay 
+ classification: [['999', 0.99754475953407329]]
+DEBUG:root:Sean quinn 
+ classification: [['999', 0.99827220576166753]]
+DEBUG:root:Aidans gay part 2 
+ classification: [['999', 0.99754475953407329]]
+DEBUG:root:Presidential,  
+ classification: [['124', 0.63434659160473794]]
+DEBUG:root:Labour, sinn féin, Fianna Gháil 
+ classification: [['112', 0.99993303572852177]]
+DEBUG:root:Enda Kenny 
+ classification: []
+DEBUG:root:Noone 
+ classification: []
+DEBUG:root:46 
+ classification: []
+DEBUG:root:Teachtaí Dála 
+ classification: [['122', 0.99914389615424493]]
+DEBUG:root:When two or more parties form a giver  
+ classification: [['123', 0.98650772481967663]]
+DEBUG:root:Gryfindor, slytherin, ravenclaw 
+ classification: []
+DEBUG:root:My left foot 
+ classification: []
+DEBUG:root:Gerry Adams 
+ classification: []
+DEBUG:root:Democratic and corrupt 
+ classification: [['112', 0.99279331294048589]]
+DEBUG:root:Sinn Fein, Social Democrats, People before profit 
+ classification: [['112', 0.99999453223759727]]
+DEBUG:root:Leo 
+ classification: [['113', 0.90416516886180454]]
+DEBUG:root:Simon 
+ classification: []
+DEBUG:root:At least 5 
+ classification: []
+DEBUG:root:Tommy Doyle 
+ classification: []
+DEBUG:root:A government the coalitions 
+ classification: [['123', 0.81661765326485758]]
+DEBUG:root:Gryffindor, Hufflepuff, Slytherin 
+ classification: []
+DEBUG:root:Not Me 
+ classification: []
+DEBUG:root:Not Leo Varadkar 
+ classification: [['113', 0.99982023886491722]]
+DEBUG:root:General elections and Presidental  elections 
+ classification: [['111', 0.90240185271770412]]
+DEBUG:root:Sinn Fein, Fine Gael and Finne Fail 
+ classification: [['112', 0.99997345879102872]]
+DEBUG:root:Leo Varadkar 
+ classification: [['113', 0.99982023886491722]]
+DEBUG:root:Francis Fitz Gerald  
+ classification: [['114', 0.99998059000853878]]
+DEBUG:root:166 
+ classification: [['121', 0.99785174018068901]]
+DEBUG:root:TeachaÃ­ DÃ¡ta  
+ classification: [['122', 0.99755135408887041]]
+DEBUG:root:A coalition government is when two or more political parties work together  
+ classification: [['123', 0.99746044194065897]]
+DEBUG:root:ArÃ­s an Uaichtainaran and the dail and the four courts  
+ classification: [['124', 0.99982111715305366]]
+DEBUG:root:Richard burton 
+ classification: [['125', 0.998057106558491]]
+DEBUG:root:Eoghan Murphy  
+ classification: [['126', 0.99700890311266432]]
+DEBUG:root:A general election and a local election 
+ classification: [['111', 0.9999844985811065]]
+DEBUG:root:Fianna FÃ¡il, Sinn Fein and Labour Party  
+ classification: [['112', 0.99999203603597708]]
+DEBUG:root:Leo Varadkar  
+ classification: [['113', 0.99982023886491722]]
+DEBUG:root:Francis Fitzgerald  
+ classification: [['114', 0.99998271996610355]]
+DEBUG:root:158 
+ classification: [['121', 0.99776579126928888]]
+DEBUG:root:Teachtai Dala 
+ classification: [['122', 0.99777549114927244]]
+DEBUG:root:Two parties make up one government  
+ classification: [['123', 0.9969946898085611]]
+DEBUG:root:I am not sure 
+ classification: []
+DEBUG:root:Richard Bruton  
+ classification: [['125', 0.99823307158408425]]
+DEBUG:root:Eoghan Murphy 
+ classification: [['126', 0.99700890311266432]]
+DEBUG:root:General election        Local election  
+ classification: [['111', 0.99999918014746836]]
+DEBUG:root:Fianna Fail           Sin fein  
+ classification: [['112', 0.99449752262433977]]
+DEBUG:root:Leo varadkar 
+ classification: [['113', 0.99982023886491722]]
+DEBUG:root:Fraincis  
+ classification: [['114', 0.99672978044797855]]
+DEBUG:root:1516 
+ classification: [['999', 0.99831393649041433]]
+DEBUG:root:Teachtai dalai  
+ classification: [['122', 0.99774239085756256]]
+DEBUG:root:Run by two parties 
+ classification: [['123', 0.30977177034916814], ['112', 0.29445735448095772]]
+DEBUG:root:Dail eireann Seanad eireann  
+ classification: [['124', 0.9998792522027925]]
+DEBUG:root:Richard bruton  
+ classification: [['125', 0.99823307158408425]]
+DEBUG:root:Eoin Murphy  
+ classification: [['126', 0.99629512759725403]]
+DEBUG:root:Presidential election and general election  
+ classification: [['111', 0.90240185271770412]]
+DEBUG:root:Green Party Sinn Fein and Fine Gael  
+ classification: [['112', 0.99999742655004065]]
+DEBUG:root:Leo varradkar  
+ classification: [['113', 0.99617600459884081]]
+DEBUG:root:Francis Fitzgerald  
+ classification: [['114', 0.99998271996610355]]
+DEBUG:root:16 
+ classification: [['999', 0.99818152177457742]]
+DEBUG:root:Teachta data  
+ classification: [['122', 0.960162781660853]]
+DEBUG:root:When two or more parties join together  
+ classification: [['123', 0.91627308998012102]]
+DEBUG:root:Leinster house and dail eireann and scanad eireann 
+ classification: [['124', 0.99851549422940511]]
+DEBUG:root:Richard burton  
+ classification: [['125', 0.998057106558491]]
+DEBUG:root:Eoghan Murphy  
+ classification: [['126', 0.99700890311266432]]
+DEBUG:root:Presidential election and General election 
+ classification: [['111', 0.90240185271770412]]
+DEBUG:root:Sinn FÃ©in, Fine Gael and Fianna FÃ¡il  
+ classification: [['112', 0.99999042315732323]]
+DEBUG:root:Leo Varadkar 
+ classification: [['113', 0.99982023886491722]]
+DEBUG:root:Frances Fitzgerald 
+ classification: [['114', 0.99998271996610355]]
+DEBUG:root:166 
+ classification: [['121', 0.99785174018068901]]
+DEBUG:root:TeachtaÃ­ DÃ¡la 
+ classification: []
+DEBUG:root:When two or more parties join together in government  
+ classification: [['123', 0.99536905241676121]]
+DEBUG:root:DÃ¡il Ãireann, Seanad Ãireann and Leinster House 
+ classification: [['124', 0.94456121200926124]]
+DEBUG:root:Richard Bruton 
+ classification: [['125', 0.99823307158408425]]
+DEBUG:root:Eoghan Murphy 
+ classification: [['126', 0.99700890311266432]]
+DEBUG:root:By-elections and local elections 
+ classification: [['111', 0.999996072954079]]
+DEBUG:root:Fine fail, fine Gael, sine fein  
+ classification: [['112', 0.99993349796880626]]
+DEBUG:root:Leo varadkar 
+ classification: [['113', 0.99982023886491722]]
+DEBUG:root:Francis Fitzgerald 
+ classification: [['114', 0.99998271996610355]]
+DEBUG:root:166 
+ classification: [['121', 0.99785174018068901]]
+DEBUG:root:Tachtai daile  
+ classification: [['122', 0.99720298854236777]]
+DEBUG:root:When two governments come together  
+ classification: [['123', 0.99745247710172269]]
+DEBUG:root:The president, the Seanad, the dail  
+ classification: [['124', 0.99958948522077273]]
+DEBUG:root:Richard bruton  
+ classification: [['125', 0.99823307158408425]]
+DEBUG:root:Eoghan Murphy  
+ classification: [['126', 0.99700890311266432]]
+DEBUG:root:General election and the presidential election  
+ classification: [['111', 0.62417651164139631]]
+DEBUG:root:Fine Gael fine fail sin fein 
+ classification: [['112', 0.99988115936052768]]
+DEBUG:root:Leo varadkar 
+ classification: [['113', 0.99982023886491722]]
+DEBUG:root:Francis Fitzgerald  
+ classification: [['114', 0.99998271996610355]]
+DEBUG:root:158 
+ classification: [['121', 0.99776579126928888]]
+DEBUG:root:Teachtai data 
+ classification: [['122', 0.96202272892602281]]
+DEBUG:root:A government made up of multiple parties 
+ classification: [['123', 0.98292762980258341]]
+DEBUG:root:Dial eireann Seanad eireann 
+ classification: [['124', 0.99914550526939083]]
+DEBUG:root:Richard bruton  
+ classification: [['125', 0.99823307158408425]]
+DEBUG:root:Eoghan Murphy  
+ classification: [['126', 0.99700890311266432]]
+DEBUG:root:General, presidential 
+ classification: [['124', 0.46301044651814571]]
+DEBUG:root:Green party,sinn fÃ©in, fiana fÃ¡il 
+ classification: [['112', 0.99991253260730095]]
+DEBUG:root:Leo varadkar 
+ classification: [['113', 0.99982023886491722]]
+DEBUG:root:Francis fitzgerald 
+ classification: [['114', 0.99998271996610355]]
+DEBUG:root:158 
+ classification: [['121', 0.99776579126928888]]
+DEBUG:root:Teacht dÃ¡il 
+ classification: [['122', 0.960162781660853]]
+DEBUG:root:When multiple parties form a government  
+ classification: [['123', 0.9972767323625974]]
+DEBUG:root:DÃ¡il eireann, seanad eireann 
+ classification: [['124', 0.99978630780427813]]
+DEBUG:root:Richard Bruton 
+ classification: [['125', 0.99823307158408425]]
+DEBUG:root:Eoghan murphy 
+ classification: [['126', 0.99700890311266432]]
+DEBUG:root:Presidential election and general election. 
+ classification: [['111', 0.89282559303337505]]
+DEBUG:root:Fine Gael, Labour Party and Sinn Fein are three political parties. 
+ classification: [['112', 0.99999790840894009]]
+DEBUG:root:Leo Varadkar. 
+ classification: [['113', 0.99989121255502944]]
+DEBUG:root:Frances Fitzgerald. 
+ classification: [['114', 0.99998142430444847]]
+DEBUG:root:166 TD's and 43 constituencies. 
+ classification: [['121', 0.99911690576651324]]
+DEBUG:root:Teachtai Dala. 
+ classification: [['122', 0.99914315083372485]]
+DEBUG:root:A coalition government is when two parties join together to make the government. 
+ classification: [['123', 0.99915152213110203]]
+DEBUG:root:Dail Eireann, Seanad Eireann and Leinster House. 
+ classification: [['124', 0.99996366757454669]]
+DEBUG:root:Richard Bruton. 
+ classification: [['125', 0.99817718007480927]]
+DEBUG:root:Eoghan Murphy. 
+ classification: [['126', 0.99798525738673582]]
+DEBUG:root:By-elections and European elections. 
+ classification: [['111', 0.99999403118585917]]
+DEBUG:root:Sinn Féin, Fianna Fáil and Fine Gael. 
+ classification: [['112', 0.99999810312477322]]
+DEBUG:root:Leo Varadkar 
+ classification: [['113', 0.99982023886491722]]
+DEBUG:root:Frances FitzGerald 
+ classification: [['114', 0.99998271996610355]]
+DEBUG:root:166 TDs  
+ classification: [['121', 0.99785174018068901]]
+DEBUG:root:Teachtaí Dáila 
+ classification: [['122', 0.99638556266946732]]
+DEBUG:root:When two parties join together to form a government. 
+ classification: [['123', 0.99935061255797608]]
+DEBUG:root:The president, Dáil éireann And Seanad áireann. 
+ classification: [['124', 0.99999682350485641]]
+DEBUG:root:Richard Bruton 
+ classification: [['125', 0.99823307158408425]]
+DEBUG:root:Eoghan Murphy 
+ classification: [['126', 0.99700890311266432]]
+DEBUG:root:Presidential and European  
+ classification: []
+DEBUG:root:Labour Green Party finafal  
+ classification: [['112', 0.99981536266109727]]
+DEBUG:root:Leo Varadkar  
+ classification: [['113', 0.99982023886491722]]
+DEBUG:root:Frances Fitzgerald  
+ classification: [['114', 0.99998271996610355]]
+DEBUG:root:46 
+ classification: []
+DEBUG:root:Donât know 
+ classification: [['999', 0.72877128129387858]]
+DEBUG:root:It one political party and some independents  
+ classification: [['112', 0.9658577684058367], ['123', 0.35495475668565618]]
+DEBUG:root:Daiole shanoded orisnaotron 
+ classification: []
+DEBUG:root:Simon haris 
+ classification: []
+DEBUG:root:Shane ross 
+ classification: []
+DEBUG:root:Local and general 
+ classification: [['111', 0.91459672814911763]]
+DEBUG:root:Labor Green Party and Sinn Fein  
+ classification: [['112', 0.9999706123127059]]
+DEBUG:root:Leo Varadkar  
+ classification: [['113', 0.99982023886491722]]
+DEBUG:root:Franis Fitzgerald  
+ classification: [['114', 0.99939143028140498]]
+DEBUG:root:116 
+ classification: [['999', 0.99765722786535771]]
+DEBUG:root:Teachta daile 
+ classification: [['122', 0.99643455509652479]]
+DEBUG:root:When 2 or more partyâs join together to form the government  
+ classification: [['123', 0.88778086188981697]]
+DEBUG:root:The president the daile and the seanad 
+ classification: [['124', 0.99948670136700823]]
+DEBUG:root:Richard Bruton  
+ classification: [['125', 0.99823307158408425]]
+DEBUG:root:Eoghan Murphy 
+ classification: [['126', 0.99700890311266432]]
+DEBUG:root:By election and general election  
+ classification: [['111', 0.99965786097132858]]
+DEBUG:root:Green party, Sinn Féin, Fine Gael  
+ classification: [['112', 0.99999587248451072]]
+DEBUG:root:Leo Varadkar 
+ classification: [['113', 0.99982023886491722]]
+DEBUG:root:It was Frances Fitzgerald  
+ classification: [['114', 0.99998271996610355]]
+DEBUG:root:166 
+ classification: [['121', 0.99785174018068901]]
+DEBUG:root:Teachtaí­ Dala 
+ classification: []
+DEBUG:root:A government where two or more party join together  
+ classification: [['123', 0.99422507787379033]]
+DEBUG:root:President, Seanad, Dail 
+ classification: [['124', 0.99773359047865495]]
+DEBUG:root:Richard Bruton  
+ classification: [['125', 0.99823307158408425]]
+DEBUG:root:Eoghan Murphy  
+ classification: [['126', 0.99700890311266432]]
+DEBUG:root:By elections and general elections are two types of elections  
+ classification: [['111', 0.96650988017723383]]
+DEBUG:root:Fine Gael, Fianna Fail and Sinn Fein 
+ classification: [['112', 0.99999343904362026]]
+DEBUG:root:Leo Varadker 
+ classification: [['113', 0.99982023886491722]]
+DEBUG:root:Francis Fitzgerald 
+ classification: [['114', 0.99998271996610355]]
+DEBUG:root:166 
+ classification: [['121', 0.99785174018068901]]
+DEBUG:root:Teachtai Dala 
+ classification: [['122', 0.99777549114927244]]
+DEBUG:root:A government with 2 or more political parties working together 
+ classification: [['123', 0.96379066180713435]]
+DEBUG:root:Seanad and The Dail 
+ classification: [['124', 0.99246401557270014]]
+DEBUG:root:Richard Bruton  
+ classification: [['125', 0.99823307158408425]]
+DEBUG:root:Eoghan Murphy 
+ classification: [['126', 0.99700890311266432]]

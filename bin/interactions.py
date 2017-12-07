@@ -1,7 +1,47 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """ USED FOR OPENING AND INTERPRETING ANSWERS AS VARIABLES"""
+import configparser
+import os
+import sys
 import MySQLdb
+global dbconn
+
+
+
+
+
+configfname='main.ini'
+def create_config(cfgfile=configfname):
+    config = configparser.ConfigParser()
+    config['Database']={
+        "server": "sample.org",
+        "sqluser": "username", 
+        "sqlpasswd": "sqlpassword", 
+        "sqlschema": "sqlschema"
+    }
+    with open(cfgfile, 'w') as configfile:
+        config.write(configfile)
+def load_config(which='db',cfgfile=configfname):
+    config = configparser.ConfigParser()
+    config.read(cfgfile)
+    if(which == 'db'):
+        server = config['Database']['server']
+        sqluser = config['Database']['sqluser']
+        sqlpasswd = config['Database']['sqlpasswd']
+        sqlschema = config['Database']['sqlschema']
+        return server, sqluser, sqlpasswd, sqlschema
+if os.path.exists(configfname):
+    dbcfg=load_config()
+    server = dbcfg[0]
+    sqluser = dbcfg[1]
+    sqlpasswd = dbcfg[2]
+    sqlschema = dbcfg[3]
+    
+else:
+    create_config()
+    sys.exit()
+
 
 # Reads the file and creates a list of classifiers(questions) and their meanings
 def read_sample_answers(name):
@@ -86,16 +126,16 @@ def get_questions(name):
 #                     lines_and_question[current_question] = filelines
 
 #         return lines_and_question""".decode('utf8')
-def DBConnect():
+def DBConnect(server="stmarysys.org", sqluser="s4u155", sqlpasswd="devKycBu", sqlschema="s4u155_examcorrector"):
     """Returns a database connection for the program to use"""
-    return (MySQLdb.connect(host="stmarysys.org",  # your host
-                            user="s4u155",       # username
-                            passwd="devKycBu",     # password
-                            db="s4u155_examcorrector"))   # name of the database)
+    return (MySQLdb.connect(host=server,  # your host
+                            user=sqluser,       # username
+                            passwd=sqlpasswd,     # password
+                            db=sqlschema))   # name of the database)
 
 def get_students():
     """Gets all of the student ids"""
-    dc = DBConnect()
+    dc = dbconn
     cursor = dc.cursor()
     examnumbers = []
     cursor.execute("CALL s4u155_examcorrector.select_examnumbers();")
@@ -110,7 +150,7 @@ def read_answers(exam_number):
     :type l: int
     """
     get_students()
-    dc = DBConnect()
+    dc = dbconn
     cursor = dc.cursor()
     cursor.execute("call s4u155_examcorrector.select_answer_by_examnumber({0})".format(str(exam_number)))
     for row in cursor.fetchall():
@@ -129,6 +169,7 @@ def submit_result(exam_number, marks, marksString):
     :param l: Exam Number
     :type l: int
     """
-    dc = DBConnect()
+    dc = dbconn
     cursor = dc.cursor()
     cursor.execute("call s4u155_examcorrector.submit_results({},{},{});".format(str(exam_number), str(marks), str(marksString)))
+dbconn = DBConnect(server, sqluser, sqlpasswd, sqlschema)
