@@ -36,11 +36,13 @@ Varadkar
 Frances Fitzgerald
 frances
 Fitzgerald
+Frances Fitzgerald
 Franis Fitzgerald
 fitzgerald
 fitzgereld
 Francis Fitzgerald
 Frances Fitzgerald
+fraincis
 no one
 none
 francis
@@ -60,9 +62,9 @@ Teachta daile
 Teachtai Dala
 Tachtai daile
 Teachtai dalai
-TeachaÃ­ DÃ¡ta 
 Teachtaí Dála
 Teachtaí Dáile
+TeachaÃ­ DÃ¡ta 
 [123]
 A coalition government is a cabinet of a parliamentary government in which many or multiple political parties cooperate, reducing the dominance of any one party within that coalition.
 Multiple parties working together running a country.
@@ -78,6 +80,10 @@ dail eireann
 seanad eireann
 The president the daile and the seanaid
 President, Seanad, Dail
+ArÃ­s an Uaichtainaran
+arás an Uaichtainaran
+ArÃ­s an Uaichtairán
+arás an Uaichtairán
 [125]
 Richard Bruton
 Rick Bruton
@@ -101,4 +107,5 @@ sean quinn
 108
 51
 16
+1516
 1516
