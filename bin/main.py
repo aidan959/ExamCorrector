@@ -11,9 +11,10 @@ import nltk
 import numpy as np
 import time
 import logging
+# pylint: disable=invalid-name
 
 logger = logging
-logger.basicConfig(filename='debug.log',level=logging.DEBUG)
+logger.basicConfig(filename='log/debug.log', level=logging.DEBUG)
 
 nltk.download('punkt')
 stemmer = LancasterStemmer()
