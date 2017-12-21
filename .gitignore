@@ -11,3 +11,4 @@ bin/main.ini
 bin/log/*
 !bin/log/sample.log
 /bin/questions.txt
+/bin/backup
