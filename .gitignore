@@ -12,3 +12,6 @@ bin/log/*
 !bin/log/sample.log
 /bin/questions.txt
 /bin/backup
+/bin/__pycache__
+/bin/MNIST_data
+/.vscode
