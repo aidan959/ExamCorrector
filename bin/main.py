@@ -10,16 +10,16 @@ import time
 import logging
 import codecs
 import numpy as np
+import unidecode
 import nltk
 from nltk.stem.lancaster import LancasterStemmer
 import interactions as fo
 LOGGER = logging
+TIME = time
 LOGGER.basicConfig(filename='log/debug.log', level=logging.DEBUG)
 try:
     EXAMCENTER = sys.argv[1]
 except IndexError:
-    EXAMCENTER = "all"
-else:
     EXAMCENTER = "all"
 finally:
     pass
@@ -28,7 +28,10 @@ try:
 except FileNotFoundError:
     LOGGER.warning("No file")
     sys.exit()
-nltk.download('punkt')
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt')
 #endregion
 #region place holders
 #  pylint: disable=invalid-name
@@ -251,7 +254,8 @@ class AnswerClassifier():
     def classify(self, sentence, show_details=False):
         """Needed for correcting, where it runs the neural code and
         returns how accurate the computer thinks the students answer is."""
-        results = self.think(sentence, show_details)
+        results = self.think(unidecode.unidecode(sentence), show_details)
+
         results = [[i, r] for i, r in enumerate(results) if r > ERROR_THRESHOLD]
         results.sort(key=lambda x: x[1], reverse=True)
         return_results = [[CLASSES[r[0]], r[1]] for r in results]
@@ -261,9 +265,9 @@ class AnswerClassifier():
 NN = AnswerClassifier()
 X = np.array(TRAINING)
 Y = np.array(OUTPUT)
-start_time = time.time()
+START_TIME = TIME.time()
 NN.train(X, Y, hidden_neurons=20, alpha=0.1, epochs=100000, dropout=False, dropout_percent=0.2)
-elapsed_time = time.time() - start_time
+elapsed_time = TIME.time() - START_TIME
 LOGGER.info("processing time:" + str(elapsed_time) + "seconds")
 # probability threshold
 ERROR_THRESHOLD = 0.2
@@ -299,40 +303,40 @@ class ExamCorrector():
             except ZeroDivisionError:
                 # print("student got zero or error")
                 result = 0
-            else:
-                result = 0
             finally:
                 fo.submit_result(i, result, markedstring)
         #print("Result: "+str(result*100) + "%")
 
     def correctStudent(self, number, marks, answers):
         """Corrects a specific student"""
-        marksString = ""
+        marks_string = ""
         tempi = 0
         for row in fo.read_answers(number):
             #print(row)
             #print(classify(row))
             try:
+                #print("unidecode.unidecode_expect_ascii(row)")
                 percent, question = self.neural_network.classify(row)
                 #print (percent)
                 #print (question)
                 #print (answers[i])
                 if percent[0][1] > float(0.85) and question == answers[tempi]:
                     #print("Correct")
-                    marksString += "2"
+                    marks_string += "2"
                     marks.append(2)
                 elif percent[0][1] > float(0.75) and question == answers[tempi]:
-                    marksString += "1"
+                    marks_string += "1"
                     #print("incorrrect")
                     marks.append(1)
                 else:
-                    marksString += "0"
+                    marks_string += "0"
                     marks.append(0)
                 tempi += 1
             except IndexError:
-                marksString += "0"
+                marks_string += "0"
                 marks.append(0)
                 tempi += 1
-        return marks, marksString
+        return marks, marks_string
+
 NEWCORRECTOR = ExamCorrector()
 NEWCORRECTOR.correctExam(fo.get_students(EXAMCENTER), fo.get_questions("cspeqaa.txt"))

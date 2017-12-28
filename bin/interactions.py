@@ -31,8 +31,7 @@ def load_config(which='db', cfgfile=CONFIGFNAME):
         tempsqlpasswd = config['Database']['sqlpasswd']
         tempsqlschema = config['Database']['sqlschema']
         return tempserver, tempsqluser, tempsqlpasswd, tempsqlschema
-    else:
-        return 0
+    return 0
 if os.path.exists(CONFIGFNAME):
     DBCFG = load_config()
     SERVER = DBCFG[0]
@@ -42,6 +41,7 @@ if os.path.exists(CONFIGFNAME):
 else:
     create_config()
     sys.exit()
+
 def read_sample_answers(name):
     """Opens the questions and sample answers text document, and filters it by class.
        Reads the file and creates a list of classifiers(questions) and their meanings"""
@@ -109,13 +109,14 @@ def get_students(examcentre):
     database_connection = DBCONN
     cursor = database_connection.cursor()
     examnumbers = []
-    #if examcentre.lower() == "all":
-    cursor.execute("CALL s4u155_examcorrector.select_examnumbers();")
-    #else:
-        #cursor.execute("CALL s4u155_examcorrector.select_examnumbers_on_examcentre({0});"
-                     #  .format(str(examcentre)))
+    #cursor.execute("CALL select_examnumbers();")
+    if "all" in examcentre:
+        cursor.execute("CALL select_examnumbers();")
+    else:
+        cursor.execute("CALL select_examnumbers_on_examcentre('{0}')".format(str(examcentre)))
     for row in cursor.fetchall():
         for innerrow in row:
+            #print(innerrow)
             examnumbers.append(innerrow)
     return examnumbers
 def read_answers(exam_number, centre="all"):
