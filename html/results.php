@@ -12,8 +12,8 @@
 <?php
 $servername = gethostname();
 $dsn = 'mysql:host=localhost;dbname=s4u155_examcorrector;charset=utf8';
-$username = "s4u155";
-$password = "devKycBu";
+$username = "username";
+$password = "password";
 
 // Create connection
 $conn = new PDO($dsn, $username, $password);

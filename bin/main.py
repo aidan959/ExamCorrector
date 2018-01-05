@@ -311,12 +311,13 @@ class ExamCorrector():
         """Corrects a specific student"""
         marks_string = ""
         tempi = 0
-        for row in fo.read_answers(number):
+        test_1 = fo.read_answers(number)
+        for row in test_1:
             #print(row)
             #print(classify(row))
             try:
                 #print("unidecode.unidecode_expect_ascii(row)")
-                percent, question = self.neural_network.classify(row)
+                percent, question = self.neural_network.classify(row.lower())
                 #print (percent)
                 #print (question)
                 #print (answers[i])
@@ -332,7 +333,7 @@ class ExamCorrector():
                     marks_string += "0"
                     marks.append(0)
                 tempi += 1
-            except IndexError:
+            except:
                 marks_string += "0"
                 marks.append(0)
                 tempi += 1

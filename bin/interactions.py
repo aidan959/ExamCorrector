@@ -5,6 +5,7 @@
 import configparser
 import os
 import sys
+import time
 import MySQLdb
 DBCONN = 0
 #regionend
@@ -133,22 +134,19 @@ def read_answers(exam_number, centre="all"):
     for row in cursor.fetchall():
         answers = row[0].split("//")
     return answers
-""" SAMPLE METHOD
-for i in get_students():
-    for rawr in read_answers(i):
-        print rawr
-for i in get_students():
-    for rawr in read_answers(i):
-        print rawr"""
-def submit_result(exam_number, marks, marks_string):
+def submit_result(exam_number, marks, markedstring):
     """
     Function to read from database
     :param l: Exam Number
     :type l: int
     """
+    time.sleep(0.01)
+    print(exam_number)
+    print(markedstring)
+    if exam_number == 7:
+        print(markedstring)
     db_conn = DBCONN
     cursor = db_conn.cursor()
-    cursor.execute("call s4u155_examcorrector.submit_results({},{},{});".format(str(exam_number),
-                                                                                str(marks),
-                                                                                str(marks_string)))
+    cursor.execute("call s4u155_examcorrector.submit_results("+ str(exam_number) +", "+ str(marks) +", "+ str(markedstring) +");")
 DBCONN = db_connect(SERVER, SQLUSER, SQLPASSWD, SQLSCHEMA)
+DBCONN.autocommit(True)

@@ -15,3 +15,8 @@ bin/log/*
 /bin/__pycache__
 /bin/MNIST_data
 /.vscode
+bin/test.py
+.vscode/
+bin/__pycache__/
+*.pyc
+.directory
